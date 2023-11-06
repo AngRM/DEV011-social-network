@@ -1,3 +1,5 @@
+import { registerNewUser } from '../lib/auth';
+
 // file register.js
 function register(navigateTo) {
   const section = document.createElement('section');
@@ -24,6 +26,25 @@ function register(navigateTo) {
   subTitle.textContent = 'Ingresa los siguientes datos';
   buttonRegister.textContent = 'Registrate';
   buttonReturn.textContent = 'Atrás';
+
+  buttonRegister.addEventListener('click', () => {
+    registerNewUser(inputEmail.value, inputPass.value)
+      .then((userCredential) => {
+      // Signed in
+        const user = userCredential.user;
+        console.log('register user: ', user);
+        navigateTo('/wall');
+      // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('erroCode: ', errorCode);
+        console.log('errorMessage: ', errorMessage);
+      // ..
+      });
+  });
+
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
   });
