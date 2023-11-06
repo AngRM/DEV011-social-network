@@ -1,4 +1,4 @@
-import { loginGoogle } from './lib';
+import { loginGoogle } from '../lib/auth.js';
 
 // file home.js
 function home(navigateTo) {
@@ -16,7 +16,7 @@ function home(navigateTo) {
   sectionForm.classList.add('formHome');
   divLogo.classList.add('logo');
 
-  const Logo = `<img id='imgLogo' src=img/Logo.png width='200px' heigth='200px'>`;
+  const Logo = '<img id=\'imgLogo\' src=img/Logo.png width=\'200px\' heigth=\'200px\'>';
   divLogo.innerHTML = Logo;
   buttonLogin.textContent = 'Iniciar sesión';
   buttonGoogle.textContent = 'Iniciar sesión con Google';
@@ -25,7 +25,27 @@ function home(navigateTo) {
   buttonLogin.addEventListener('click', () => navigateTo('/login'));
   buttonRegister.addEventListener('click', () => navigateTo('/register'));
   buttonGoogle.addEventListener('click', () => {
-    loginGoogle().then(() => navigateTo('/wall'));
+    loginGoogle()
+      .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+        // The signed-in user info.
+        const user = result.user;
+        // IdP data available using getAdditionalUserInfo(result)
+        navigateTo('/wall');
+        return user;
+      // ...
+      })
+      .catch((error) => {
+      // Handle Errors here.
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // The email of the user's account used.
+        const email = error.customData.email;
+        // The AuthCredential type that was used.
+        // ...
+        console.log('errores: ', errorCode, errorMessage, email);
+        return error;
+      });
   });
   title.textContent = 'El verdadero sabor de nuestra tierra';
 
