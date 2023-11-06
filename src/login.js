@@ -37,5 +37,4 @@ function login(navigateTo) {
     return section;
 }
 
-
 export default login;

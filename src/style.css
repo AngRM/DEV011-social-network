@@ -1,5 +1,5 @@
 body{
-    background-color:black;
+    background-color:rgb(0, 0, 0);
     
 }
 .homeRebozo{
@@ -35,4 +35,8 @@ body{
 }
 img{
     margin:40px, 20px,0px,20px;
+}
+
+.backgroundWall{
+    background-color: aqua;
 }
