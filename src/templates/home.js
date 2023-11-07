@@ -52,8 +52,8 @@ function home(navigateTo) {
   });
   title.textContent = 'El verdadero sabor de nuestra tierra';
 
-  sectionRebozoHome.append(divLogo);
-  sectionForm.append(title, buttonLogin, buttonGoogle, buttonRegister);
+  sectionRebozoHome.append(divLogo, title);
+  sectionForm.append(buttonLogin, buttonGoogle, buttonRegister);
   section.append(sectionRebozoHome, sectionForm);
 
   return section;
