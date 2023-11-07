@@ -43,13 +43,13 @@ width: 19em;
 
 .botonesHome {
     background-color: white;
-    color: rgb(156, 20, 20);
+    color: rgb(85, 60, 14);
     font-size: 1.6em;
     font-family: monospace;
     font-weight: bold;
     text-align: center;
     line-height: 1em;
-    border: 2px solid orange;
+    border: 1px solid rgb(223, 92, 4);
     padding: 10px 20px;
     cursor: pointer;
     display: inline-block;
