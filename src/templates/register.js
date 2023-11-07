@@ -1,4 +1,4 @@
-import { registerNewUser } from '../lib/auth';
+import { registerNewUser, storeUserInfo } from '../lib/auth';
 
 // file register.js
 function register(navigateTo) {
@@ -28,20 +28,50 @@ function register(navigateTo) {
   buttonReturn.textContent = 'Atrás';
 
   buttonRegister.addEventListener('click', () => {
+  // Validar que las contraseñas coincidan
+    if (inputPass.value !== inputPassConfirm.value) {
+      console.error('Las contraseñas no coinciden');
+      return;
+    }
+
+    // Registrar el usuario en Firebase Authentication
     registerNewUser(inputEmail.value, inputPass.value)
       .then((userCredential) => {
-      // Signed in
+        // El usuario se ha registrado exitosamente
         const user = userCredential.user;
-        console.log('register user: ', user);
-        navigateTo('/wall');
-      // ...
+        console.log('Usuario registrado: ', user);
+
+        // Aquí puedes guardar información adicional del usuario en Firestore si es necesario
+        const userInfo = {
+          name: inputName.value,
+          country: inputCountry.value,
+          region: inputRegion.value,
+          uid: user.uid,
+          // ...otros campos
+        };
+
+        // Guardar información adicional del usuario en Firestore
+        // Almacenar información adicional del usuario en Firestore
+        storeUserInfo(userInfo)
+          .then(() => {
+            console.log(
+              'Información adicional del usuario almacenada en Firestore',
+            );
+            // Continuar con las acciones necesarias después de almacenar la información
+          // alert
+          // redirection
+          })
+          .catch((error) => {
+            console.error(
+              'Error al almacenar información adicional del usuario en Firestore: ',
+              error,
+            );
+          });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.log('erroCode: ', errorCode);
-        console.log('errorMessage: ', errorMessage);
-      // ..
+        console.error('Error al registrar usuario: ', errorCode, errorMessage);
       });
   });
 

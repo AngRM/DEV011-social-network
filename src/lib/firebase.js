@@ -6,7 +6,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from 'firebase/auth';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import {
+  getFirestore, collection, getDocs, addDoc} from 'firebase/firestore';
 import { app } from './firebaseConfig.js';
 
 export const auth = getAuth(app);
@@ -21,4 +22,5 @@ export {
   getFirestore,
   collection,
   getDocs,
+  addDoc,
 };

@@ -27,6 +27,13 @@ function login(navigateTo) {
   buttonReturn.textContent = 'Atrás';
   buttonNewUser.textContent = 'Créate una nueva cuenta';
 
+    // Declarar errorElement antes del buttonLogin.addEventListener
+    const errorElement = document.createElement("div");
+    errorElement.style.color = "red"; // Establece el color del texto en rojo
+    errorElement.textContent =
+      "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
+    errorElement.style.display = "none"; // Inicialmente oculto
+
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
   });
@@ -34,6 +41,8 @@ function login(navigateTo) {
   buttonLogin.addEventListener('click', (event) => {
     event.preventDefault();
     console.log('clickkkkkk');
+    // Reiniciar el mensaje de error al hacer clic en el botón de inicio de sesión
+    errorElement.style.display = 'none';
     loginUser(inputEmail.value, inputPass.value)
       .then((userCredential) => {
         // Signed in
@@ -46,9 +55,15 @@ function login(navigateTo) {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-      });
-  });
+          // Mostrar el mensaje de error solo si la autenticación falla
+          if (errorCode === 'auth/wrong-password' || errorCode === 'auth/user-not-found') {
+            errorElement.style.display = 'block';
+          }
+        });
+    });
   form.append(inputEmail, inputPass, forgetPass, buttonLogin);
+   // elemento de error
+   form.appendChild(errorElement);
   sectionNewUser.append(newUser, buttonNewUser);
   section.append(title, subTitle, form, buttonReturn, sectionNewUser);
 
