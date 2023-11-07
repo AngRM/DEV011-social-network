@@ -58,8 +58,9 @@ function register(navigateTo) {
               'Información adicional del usuario almacenada en Firestore',
             );
             // Continuar con las acciones necesarias después de almacenar la información
-          // alert
-          // redirection
+            // alert
+            // redirection
+            navigateTo('/wall');
           })
           .catch((error) => {
             console.error(
