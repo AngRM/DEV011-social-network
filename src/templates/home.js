@@ -6,20 +6,23 @@ function home(navigateTo) {
   const sectionRebozoHome = document.createElement('section');
   const sectionForm = document.createElement('section');
   const divLogo = document.createElement('div');
-  const imgLogo = document.createElement('img');
-  const title = document.createElement('p');
+  // const imgLogo = document.createElement('img');
+  const title = document.createElement('h2');
   const buttonLogin = document.createElement('button');
   const buttonGoogle = document.createElement('button');
   const buttonRegister = document.createElement('button');
-
   sectionRebozoHome.classList.add('homeRebozo');
   sectionForm.classList.add('formHome');
   divLogo.classList.add('logo');
+  title.classList.add('slogan');
+  buttonLogin.classList.add('botonesHome');
+  buttonGoogle.classList.add('botonesHome');
+  buttonRegister.classList.add('botonesHome');
 
   const Logo = '<img id=\'imgLogo\' src=img/Logo.png width=\'200px\' heigth=\'200px\'>';
   divLogo.innerHTML = Logo;
   buttonLogin.textContent = 'Iniciar sesión';
-  buttonGoogle.textContent = 'Iniciar sesión con Google';
+  buttonGoogle.textContent = 'Con Google';
   buttonRegister.textContent = 'Crear cuenta';
 
   buttonLogin.addEventListener('click', () => navigateTo('/login'));
@@ -49,8 +52,8 @@ function home(navigateTo) {
   });
   title.textContent = 'El verdadero sabor de nuestra tierra';
 
-  sectionRebozoHome.append(title, divLogo);
-  sectionForm.append(buttonLogin, buttonGoogle, buttonRegister);
+  sectionRebozoHome.append(divLogo);
+  sectionForm.append(title, buttonLogin, buttonGoogle, buttonRegister);
   section.append(sectionRebozoHome, sectionForm);
 
   return section;

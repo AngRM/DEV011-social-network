@@ -1,38 +1,89 @@
-body{
-    background-color:rgb(0, 0, 0);
-    
-}
-.homeRebozo{
-    display: flex;
-    background-color: aquamarine;
-    align-content: center;
-    justify-content: center;
-    height: 400px;
-    flex-direction: column;
-    flex: 1;
-    padding-bottom: 0%;
-}
-.formHome{
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    height: 400px;
-    flex-direction: column;
-    width: auto;
-    background-color: blueviolet;
-    gap: 10px;
-    flex: 1;
-}
-.logo{
+body {
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-size: contain;
-    /* border-radius: 50%; */
-    border-color: blue;
-    margin-bottom: 0%;
+    height: 100vh;
+    margin: 0;
 }
+
+.homeRebozo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 33em;
+    width: 30em;
+    background: url('img/rebozoEncendido.png') center/cover no-repeat;
+}
+.slogan {
+    color: rgb(250, 244, 244); /* Color del texto */
+    font-size: x-large; /*Tamaño de fuente */
+    font-family:monospace; /* Familia de fuentes */
+    background-color: rgba(165, 59, 10, 0.89); /* Fondo negro semitransparente */
+    padding: 1em; /* Espaciado interno */
+text-align: right;
+align-content: center;
+margin-top: -53%;
+width: 19em;
+}
+
+
+.formHome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 2em;
+    height: 500px;
+    flex-direction: column;
+    width: auto;
+    background-color: white;
+}
+
+.botonesHome {
+    background-color: white;
+    color: rgb(156, 20, 20);
+    font-size: 1.6em;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1em;
+    border: 2px solid orange;
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+    width: 200px; /* Establecer un ancho fijo para todos los botones */
+}
+
+.botonesHome:hover {
+    background-color: darkblue;
+    color: white;
+}
+
+
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 2px solid white;
+    overflow: hidden;
+}
+
+.logo img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
 img{
     margin:40px, 20px,0px,20px;
 }
