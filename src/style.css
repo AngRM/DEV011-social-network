@@ -1,93 +1,90 @@
+#root {
+  height: 100vh;
+}
 body {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: auto;
 }
 
 .homeRebozo {
-    display: flex;
-    justify-content:end;
-    align-items:center;
-    flex-direction: column;
-    height: 33em;
-    width: 30em;
-    background: url('img/rebozoEncendido.png') center/cover no-repeat;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex-direction: column;
+  height: 26em;
+  width: 30em;
+  background: url("img/rebozoEncendido.png") center/cover no-repeat;
 }
 .slogan {
-    color: rgb(250, 244, 244); /* Color del texto */
-    font-size: x-large; /*Tamaño de fuente */
-    font-family:monospace; /* Familia de fuentes */
-    background-color: rgba(165, 59, 10, 0.89); /* Fondo negro semitransparente */
-    padding: 1em; /* Espaciado interno */
-text-align: right;
-align-content:flex-end;
-margin-top: 9%;
-width: 19em;
+  color: rgb(250, 244, 244); /* Color del texto */
+  font-size: large; /*Tamaño de fuente */
+  font-family: monospace; /* Familia de fuentes */
+  background-color: rgba(165, 59, 10, 0.89); /* Fondo negro semitransparente */
+  padding: 1em; /* Espaciado interno */
+  text-align: right;
+  align-content: flex-end;
+  margin-top: 9%;
+  width: 23em;
 }
 
-
 .formHome {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding-top:0.6em;
-    height: 17em;
-    flex-direction: column;
-    width: auto;
-    background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgb(192, 26, 26);
 }
 
 .botonesHome {
-    background-color: white;
-    color: rgb(85, 60, 14);
-    font-size: 1.6em;
-    font-family: monospace;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1em;
-    border: 1px solid rgb(223, 92, 4);
-    padding: 10px 20px;
-    cursor: pointer;
-    display: inline-block;
-    margin: 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    width: 200px; /* Establecer un ancho fijo para todos los botones */
+  background-color: rgb(19, 168, 194);
+  color: rgb(252, 229, 188);
+  font-size: 1.6em;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1em;
+  border: 1px solid srgb(238, 234, 231);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 9px;
+  white-space: nowrap;
+  width: 200px; /* Establecer un ancho fijo para todos los botones */
 }
 
 .botonesHome:hover {
-    background-color: darkblue;
-    color: white;
+  background-color: rgb(139, 79, 0);
 }
 
-
-
 .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: white;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 2px solid white;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid white;
+  overflow: hidden;
 }
 
 .logo img {
-    max-width: 100%;
-    max-height: 100%;
+  max-width: 100%;
+  max-height: 100%;
 }
 
-
-img{
-    margin:40px, 20px,0px,20px;
+img {
+  margin: 40px, 20px, 0px, 20px;
 }
 
-.backgroundWall{
-    background-color: aqua;
+.backgroundWall {
+  background-color: aqua;
 }
