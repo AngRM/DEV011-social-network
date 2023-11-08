@@ -16,13 +16,13 @@ function home(navigateTo) {
   divLogo.classList.add('logo');
   title.classList.add('slogan');
   buttonLogin.classList.add('botonesHome');
-  buttonGoogle.classList.add('botonesHome');
+  buttonGoogle.classList.add('botonesHomeG');
   buttonRegister.classList.add('botonesHome');
 
   const Logo = '<img id=\'imgLogo\' src=img/Logo.png width=\'200px\' heigth=\'200px\'>';
   divLogo.innerHTML = Logo;
   buttonLogin.textContent = 'Iniciar sesión';
-  buttonGoogle.textContent = 'Con Google';
+  buttonGoogle.innerHTML = ' Inicia con <img src="img.google.png">';
   buttonRegister.textContent = 'Crear cuenta';
 
   buttonLogin.addEventListener('click', () => navigateTo('/login'));
