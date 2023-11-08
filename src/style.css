@@ -1,13 +1,12 @@
 body {
-    background-color: white;
+    background: url("img/rebozoEncendido.png") center/cover no-repeat;
+
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
     margin: 0;
-  }
-  #root {
-    height: 100vh;
+    padding: 0;
   }
   .homeRebozo {
     display: flex;
@@ -85,4 +84,120 @@ body {
   .backgroundWall {
     background-color: aqua;
   }
+  
+  /* Estilos para la sección de registro */
+.formRegister {
+    background-color: white;
+    border: 1px solid rgb(223, 92, 4);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 0%;
+    width: 390px;
+   align-content: space-between;
+    text-align: center;
+    margin-top: 5em;
+  }
+  h2 {
+    color: black;
+    font-size: 3em;
+    font-family: monospace;
+    margin: 0;
+    padding-top: 1em;
+  }
+  
+  h3 {
+    color: black;
+    font-size: 1em;
+    font-family: monospace;
+    padding-bottom: 3em;
+  }
+  .buttonRegisterRegister:hover, .buttonReturnRegister:hover {
+    background-color: darkblue;
+  }
+  
+  /* Estilos específicos para el botón de registro */
+  .buttonRegisterRegister {
+    background-color: blue;
+  }
+  
+  /* Estilos para el div de fondo */
+ sectionRebozo2 {
+    background: url("img/rebozoEncendido.png") center/cover no-repeat;
+
+  
+  }
+  sectionRebozo3 {
+    background: url("img/rebozoEncendido.png") center/cover no-repeat;
+
+  
+  }
+
+
+/* Estilos para inputs y botones */
+.inputRegister{
+    background-color: white;
+    color: rgb(85, 60, 14);
+    font-size: 1.6em;
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1em;
+    border: 1px solid rgb(223, 92, 4);
+    padding: 10px 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    border-radius: 10px;
+    white-space: nowrap;
+    width: 200px; 
+  }
+ 
+  .buttonReturnRegister{
+    
+        background-color:rgb(4, 161, 223);
+        color: white;
+        font-size: 1.6em;
+        font-family: monospace;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1em;
+        border: 1px solid rgb(4, 161, 223);
+
+        padding: 10px 20px;
+        margin-bottom: 1.6em;
+        cursor: pointer;
+        /* display: inline-block; */
+        /* margin: 10px; */
+        border-radius: 50px;
+        white-space: nowrap;
+        width: 200px; /* Establecer un ancho fijo para todos los botones */
+      }
+      .buttonReturnRegister:hover {
+        background-color: darkblue;
+      }
+
+ 
+  .buttonRegisterRegister{
+    
+        background-color:rgb(4, 161, 223);
+        color: white;
+        font-size: 1.6em;
+        font-family: monospace;
+        font-weight: bold;
+        text-align: center;
+        line-height: 1em;
+        border: 1px solid rgb(4, 161, 223);
+        padding: 10px 20px;
+        cursor: pointer;
+        display: inline-block;
+        margin-bottom: 1em;
+        margin-top: 1em;
+        border-radius: 50px;
+        white-space: nowrap;
+        width: 200px; /* Establecer un ancho fijo para todos los botones */
+      }
+      .buttonRegisterRegister:hover {
+        background-color: blue;
+      }
+
   

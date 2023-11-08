@@ -14,6 +14,20 @@ function register(navigateTo) {
   const inputPass = document.createElement('input');
   const inputPassConfirm = document.createElement('input');
   const buttonRegister = document.createElement('button');
+  const sectionRebozo2 = document.createElement('section');
+  const sectionRebozo3 = document.createElement('section');
+
+  section.classList.add('formRegister');
+  inputName.classList.add('inputRegister');
+  inputEmail.classList.add('inputRegister');
+  inputCountry.classList.add('inputRegister');
+  inputRegion.classList.add('inputRegister');
+  inputPass.classList.add('inputRegister');
+  inputPassConfirm.classList.add('inputRegister');
+  buttonReturn.classList.add('buttonReturnRegister');
+  buttonRegister.classList.add('buttonRegisterRegister');
+  sectionRebozo2.classList.add('sectionRebozo2');
+  sectionRebozo3.classList.add('sectionRebozo3');
 
   inputName.placeholder = 'Nombre y Apellido';
   inputEmail.placeholder = 'Correo electrónico';
@@ -23,12 +37,12 @@ function register(navigateTo) {
   inputPassConfirm.placeholder = 'Confirma tu contraseña';
 
   title.textContent = 'Registro';
-  subTitle.textContent = 'Ingresa los siguientes datos';
+  subTitle.textContent = 'Ingresa los siguientes datos:';
   buttonRegister.textContent = 'Registrate';
   buttonReturn.textContent = 'Atrás';
 
   buttonRegister.addEventListener('click', () => {
-  // Validar que las contraseñas coincidan
+    // Validar que las contraseñas coincidan
     if (inputPass.value !== inputPassConfirm.value) {
       console.error('Las contraseñas no coinciden');
       return;
@@ -51,15 +65,12 @@ function register(navigateTo) {
         };
 
         // Guardar información adicional del usuario en Firestore
-        // Almacenar información adicional del usuario en Firestore
         storeUserInfo(userInfo)
           .then(() => {
             console.log(
               'Información adicional del usuario almacenada en Firestore',
             );
-            // Continuar con las acciones necesarias después de almacenar la información
-            // alert
-            // redirection
+            // Redirigir al usuario al 'wall'
             navigateTo('/wall');
           })
           .catch((error) => {
@@ -80,8 +91,17 @@ function register(navigateTo) {
     navigateTo('/');
   });
 
-  form.append(inputName, inputCountry, inputRegion, inputEmail, inputPass, inputPassConfirm);
-  section.append(title, subTitle, form, buttonRegister, buttonReturn);
+  form.append(
+    inputName,
+    inputCountry,
+    inputRegion,
+    inputEmail,
+    inputPass,
+    inputPassConfirm,
+  );
+  section.append(sectionRebozo2, title, subTitle, form, buttonRegister, buttonReturn);
+  sectionRebozo2.append();
+  sectionRebozo3.append();
   return section;
 }
 
