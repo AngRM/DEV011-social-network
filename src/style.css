@@ -1,88 +1,177 @@
 body {
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin: 0;
-  }
-  #root {
-    height: 100vh;
-  }
-  .homeRebozo {
-    display: flex;
-    align-content: center;
-    justify-content: space-between;
-    /* height: 400px; */
-    gap: 10px;
-    flex-direction: column;
-    /* flex: 1; */
-    /* padding-bottom: 4%; */
-    align-items: center;
-    height: 50%;
-    background: url("img/rebozoEncendido.png") center/cover no-repeat;
-  }
-  .slogan {
-    color: rgb(250, 244, 244); /* Color del texto */
-    font-size: x-large; /*Tamaño de fuente */
-    font-family: monospace; /* Familia de fuentes */
-    background-color: rgba(165, 59, 10, 0.89); /* Fondo negro semitransparente */
-    padding: 1em; /* Espaciado interno */
-    text-align: center;
-    align-content: space-between;
-    margin-top: 9%;
-    width: 19em;
-  }
-  .formHome {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    padding-top: 0.6em;
-    height: 17em;
-    flex-direction: column;
-    width: auto;
-    background-color: white;
-  }
-  .botonesHome {
-    background-color: white;
-    color: rgb(85, 60, 14);
-    font-size: 1.6em;
-    font-family: monospace;
-    font-weight: bold;
-    text-align: center;
-    line-height: 1em;
-    border: 1px solid rgb(223, 92, 4);
-    padding: 10px 20px;
-    cursor: pointer;
-    display: inline-block;
-    margin: 10px;
-    border-radius: 5px;
-    white-space: nowrap;
-    width: 200px; /* Establecer un ancho fijo para todos los botones */
-  }
-  .botonesHome:hover {
-    background-color: darkblue;
-  }
-  .logo {
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 60px;
-    background-color: white;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: solid 3px black;
-  }
-  .logo img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  img {
-    margin: 40px, 20px, 0px, 20px;
-  }
-  .backgroundWall {
-    background-color: aqua;
-  }
-  
+  background-color: white;
+  /* display: flex; ---- para que el fondo en login quede bien...*/ 
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+}
+#root {
+  height: 100vh;
+}
+.homeRebozo {
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  /* height: 400px; */
+  gap: 10px;
+  flex-direction: column;
+  /* flex: 1; */
+  /* padding-bottom: 4%; */
+  align-items: center;
+  height: 50%;
+  background: url("img/rebozoEncendido.png") center/cover no-repeat;
+}
+.slogan {
+  color: rgb(250, 244, 244); /* Color del texto */
+  font-size: x-large; /*Tamaño de fuente */
+  font-family: monospace; /* Familia de fuentes */
+  background-color: rgba(165, 59, 10, 0.89); /* Fondo negro semitransparente */
+  padding: 1em; /* Espaciado interno */
+  text-align: center;
+  align-content: space-between;
+  margin-top: 9%;
+  width: 19em;
+}
+.formHome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding-top: 0.6em;
+  height: 17em;
+  flex-direction: column;
+  width: auto;
+  background-color: white;
+}
+.botonesHome {
+  background-color: white;
+  color: rgb(85, 60, 14);
+  font-size: 1.6em;
+  font-family: monospace;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1em;
+  border: 1px solid rgb(223, 92, 4);
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 5px;
+  white-space: nowrap;
+  width: 200px; /* Establecer un ancho fijo para todos los botones */
+}
+.botonesHome:hover {
+  background-color: darkblue;
+}
+.logo {
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 60px;
+  background-color: white;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: solid 3px black;
+}
+.logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+img {
+  margin: 40px, 20px, 0px, 20px;
+}
+.backgroundWall {
+  background-color: aqua;
+}
+
+/*colorcito al login*/
+
+.login-background {
+  background: url("img/fondologin.png"); 
+  background-size: 100% 100%; /* Ajusta el fondo al 100% del ancho y alto del contenedor */
+  background-position: center top; /* Cambiado a "top" */
+  background-repeat: no-repeat;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh; /* Cambiado a "min-height" */
+}
+.header-text {
+  color: white;
+  font-size: 35px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  max-width: 100%;
+  z-index: 1;
+  text-align: center; /* Centra horizontalmente el texto */
+}
+/* Estilo para los botones y otros elementos en la sección */
+section {
+  text-align: center;
+  position: relative; /* Agrega posición relativa para que estén por encima del fondo */
+}
+
+/* Estilo para centrar los elementos verticalmente en la sección */
+section > * {
+  margin: 10px 0; /* Espacio entre elementos */
+}
+
+/* Estilo para centrar los elementos verticalmente en el formulario */
+form {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  text-align: center; /* Alineación horizontal del texto */
+}
+
+/* Estilo para los elementos dentro del formulario */
+form > * {
+  margin: 10px 0; /* Espacio entre elementos */
+}
+
+/* Estilo para el título "Acceso" */
+form h2 {
+  font-size: 24px;
+  color: #333; /* Cambia el color a tu elección */
+}
+
+/* Estilo para el subtítulo "Inicia sesión para continuar" */
+form h3 {
+  font-size: 18px;
+  color: #666; /* Cambia el color a tu elección */
+}
+
+/* Estilo para los campos de entrada de texto */
+form input[type="text"],
+form input[type="password"] {
+  width: 100%; /* Ancho del 100% para que se ajusten al contenedor */
+  padding: 10px; /* Espacio interno */
+  margin: 5px 0; /* Espacio entre campos */
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 5px; /* Bordes redondeados */
+  background-color: #f9f9f9; /* Color de fondo */
+}
+
+/* Estilo para los botones en el formulario */
+form button {
+  padding: 10px 20px; /* Espacio interno en botones */
+  background-color: #32b2b5; /* Color de fondo del botón */
+  color: white; /* Color del texto en el botón */
+  border: none; /* Sin borde en el botón */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+/* Estilo para los enlaces de "¿Olvidaste tu contraseña?" y "¿Aún no tienes cuenta?" */
+form p a {
+  color: #007bff; /* Color de enlace */
+  text-decoration: none; /* Sin subrayado */
+}
