@@ -1,5 +1,4 @@
 import { registerNewUser, storeUserInfo } from '../lib/auth';
-
 // file register.js
 function register(navigateTo) {
   const section = document.createElement('section');
