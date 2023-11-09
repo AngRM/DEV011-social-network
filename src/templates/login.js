@@ -14,10 +14,11 @@ function login(navigateTo) {
   const inputEmail = document.createElement("input");
   const inputPass = document.createElement("input");
   const buttonLogin = document.createElement("button");
+  buttonLogin.classList.add("buttonlogin");
   const forgetPass = document.createElement("p");
   const sectionNewUser = document.createElement("section");
   const newUser = document.createElement("p");
-  newUser.classList.add('inline-text'); // Agrega una clase a los elementos de texto
+  newUser.classList.add("inline-text"); // Agrega una clase a los elementos de texto
   const buttonNewUser = document.createElement("button");
   buttonNewUser.classList.add("create-account-button");
   const headerTextContainer = document.createElement("div");
@@ -37,7 +38,7 @@ function login(navigateTo) {
   newUser.textContent = "¿Aún no tienes cuenta?";
 
   buttonReturn.textContent = "Atrás";
-  buttonNewUser.textContent ="Create una nueva";
+  buttonNewUser.textContent = "Create una nueva";
 
   buttonReturn.addEventListener("click", () => {
     navigateTo("/");
