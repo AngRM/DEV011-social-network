@@ -12,6 +12,8 @@ function wall(navigateTo) {
   postSection.classList.add("postSection");
   buttonPost.classList.add("buttonPost");
 
+  //eliminar por fiiiiiiiiiiiiiii///////////////
+
   const dataUser = `
     <dl itemscope itemtype="user">
       <dt>Nombre:</dt><dd itemprop="name">María</dd>
