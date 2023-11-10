@@ -1,6 +1,9 @@
 import { registerNewUser, storeUserInfo } from '../lib/auth';
 // file register.js
 function register(navigateTo) {
+  // const whiteBackground1 = document.createElement("div");
+  // whiteBackground1.classList.add("white-background"); // Agrega una clase al div
+  // whiteBackground1.style.zIndex = "0"; // Asegura que el fondo blanco e
   const section = document.createElement('section');
   const title = document.createElement('h2');
   const subTitle = document.createElement('h3');
@@ -13,10 +16,11 @@ function register(navigateTo) {
   const inputPass = document.createElement('input');
   const inputPassConfirm = document.createElement('input');
   const buttonRegister = document.createElement('button');
-  const sectionRebozo2 = document.createElement('section');
-  const sectionRebozo3 = document.createElement('section');
+  const whiteBackground1 = document.createElement('div');
 
-  section.classList.add('formRegister');
+  whiteBackground1.classList.add('white-background1'); // Agrega una clase al div
+  whiteBackground1.style.zIndex = '0'; // Asegura que el fo
+  section.classList.add('login-background');
   inputName.classList.add('inputRegister');
   inputEmail.classList.add('inputRegister');
   inputCountry.classList.add('inputRegister');
@@ -25,8 +29,6 @@ function register(navigateTo) {
   inputPassConfirm.classList.add('inputRegister');
   buttonReturn.classList.add('buttonReturnRegister');
   buttonRegister.classList.add('buttonRegisterRegister');
-  sectionRebozo2.classList.add('sectionRebozo2');
-  sectionRebozo3.classList.add('sectionRebozo3');
 
   inputName.placeholder = 'Nombre y Apellido';
   inputEmail.placeholder = 'Correo electrónico';
@@ -89,7 +91,7 @@ function register(navigateTo) {
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
   });
-
+  section.appendChild(whiteBackground1);
   form.append(
     inputName,
     inputCountry,
@@ -97,10 +99,10 @@ function register(navigateTo) {
     inputEmail,
     inputPass,
     inputPassConfirm,
+    buttonRegister,
+    buttonReturn,
   );
-  section.append(sectionRebozo2, title, subTitle, form, buttonRegister, buttonReturn);
-  sectionRebozo2.append();
-  sectionRebozo3.append();
+  section.append(title, subTitle, form);
   return section;
 }
 

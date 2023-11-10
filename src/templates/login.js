@@ -70,7 +70,7 @@ function login(navigateTo) {
     subTitle,
     form,
     buttonReturn,
-    sectionNewUser
+    sectionNewUser,
   );
 
   return section;

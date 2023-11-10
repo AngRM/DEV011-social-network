@@ -50,44 +50,36 @@ body {
   background-color: white;
 }
 .botonesHome {
-  background-color: rgb(4, 161, 223);
+  padding: 0.9375em 1.25em; /*15px 20px*/
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.30em; 
+  background-color: #32B2B5; 
   color: white;
-  font-size: 1.6em;
-  font-family: monospace;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1em;
-  border: 1px solid rgb(4, 161, 223);
-  padding: 10px 20px;
+  border: none; 
+  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  position: relative;
+  z-index: 1; 
   cursor: pointer;
-  display: inline-block;
-  margin: 10px;
-  border-radius: 5px;
-  white-space: nowrap;
-  width: 200px; /* Establecer un ancho fijo para todos los botones */
 }
 .botonesHome:hover {
   background-color: brown;
+  border: 1px solid brown (4, 161, 223);
 }
 .botonesHomeG {
-  background-color: rgb(4, 161, 223);
+  padding: 0.9375em 1.25em; /*15px 20px*/
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.30em; 
+  background-color: #32B2B5; 
   color: white;
-  font-size: 1.6em;
-  font-family: monospace;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1em;
-  border: 1px solid rgb(4, 161, 223);
-  padding: 10px 20px;
+  border: none; 
+  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  position: relative;
+  z-index: 1; 
   cursor: pointer;
-  display: inline-block;
-  margin: 10px;
-  border-radius: 5px;
-  white-space: nowrap;
-  width: 200px; /* Establecer un ancho fijo para todos los botones */
 }
 .botonesHomeG:hover {
   background-color: brown;
+  border: 1px solid brown (4, 161, 223);
 }
 .logo {
   justify-content: center;
@@ -111,37 +103,26 @@ img {
   background-color: aqua;
 }
 /* Estilos para la sección de registro */
+
 .formRegister {
   background-color: white;
-  border: 1px solid rgb(223, 92, 4);
+  border: 0.5px solid rgb(223, 92, 4);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 0%;
   width: 390px;
   align-content: space-between;
   text-align: center;
-  margin-top: 5em;
 }
-h2 {
-  color: black;
-  font-size: 3em;
-  font-family: monospace;
-  margin: 0;
-  padding-top: 1em;
+.white-background1 {
+  background-color: white;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  bottom: 35px;
+  z-index: -1;
 }
-h3 {
-  color: black;
-  font-size: 1em;
-  font-family: monospace;
-  padding-bottom: 3em;
-}
-/* Estilos para el div de fondo */
-sectionRebozo2 {
-  background: url("img/rebozoEncendido.png") center/cover no-repeat;
-}
-sectionRebozo3 {
-  background: url("img/rebozoEncendido.png") center/cover no-repeat;
-}
+
 /* Estilos para inputs y botones */
 .inputRegister {
   background-color: white;
@@ -151,7 +132,7 @@ sectionRebozo3 {
   font-weight: bold;
   text-align: center;
   line-height: 1em;
-  border: 1px solid rgb(223, 92, 4);
+  border: 2px solid #FF8055;
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
@@ -159,46 +140,36 @@ sectionRebozo3 {
   border-radius: 10px;
   white-space: nowrap;
   width: 200px;
+  z-index: 1;
+
 }
 .buttonReturnRegister {
-  background-color: rgb(4, 161, 223);
+  padding: 0.9375em 1.25em; /*15px 20px*/
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.30em; 
+  background-color: #32B2B5; 
   color: white;
-  font-size: 1.6em;
-  font-family: monospace;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1em;
-  border: 1px solid rgb(4, 161, 223);
-  padding: 10px 20px;
-  margin-bottom: 1.6em;
+  border: none; 
+  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  position: relative;
+  z-index: 1; 
   cursor: pointer;
-  /* display: inline-block; */
-  /* margin: 10px; */
-  border-radius: 50px;
-  white-space: nowrap;
-  width: 200px; /* Establecer un ancho fijo para todos los botones */
 }
 .buttonReturnRegister:hover {
   background-color: brown;
   border: 1px solid brown (4, 161, 223);
 }
 .buttonRegisterRegister {
-  background-color: rgb(4, 161, 223);
+  padding: 0.9375em 1.25em; /*15px 20px*/
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.30em; 
+  background-color: #32B2B5; 
   color: white;
-  font-size: 1.6em;
-  font-family: monospace;
-  font-weight: bold;
-  text-align: center;
-  line-height: 1em;
-  border: 1px solid rgb(4, 161, 223);
-  padding: 10px 20px;
+  border: none; 
+  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  position: relative;
+  z-index: 1; 
   cursor: pointer;
-  display: inline-block;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  border-radius: 50px;
-  white-space: nowrap;
-  width: 200px; /* Establecer un ancho fijo para todos los botones */
 }
 .buttonRegisterRegister:hover {
   background-color: brown;
