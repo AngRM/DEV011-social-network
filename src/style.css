@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   /* overflow: hidden; */
-  }
+}
 
 .homeRebozo {
   display: flex;
@@ -27,7 +27,6 @@ body {
   background: url("img/rebozoEncendido.png") center/cover no-repeat;
 }
 .slogan {
-  
   color: rgb(250, 244, 244); /* Color del texto */
   font-size: x-large; /*Tamaño de fuente */
   font-family: monospace; /* Familia de fuentes */
@@ -105,14 +104,19 @@ img {
 /* Estilos para la sección de registro */
 
 .formRegister {
-  background-color: white;
-  border: 0.5px solid rgb(223, 92, 4);
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 390px;
-  align-content: space-between;
+  background: url("img/rebozoEncendido.png");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  height: 100vh;
 }
+
 .white-background1 {
   background-color: white;
   position: absolute;
@@ -127,49 +131,65 @@ img {
 .inputRegister {
   background-color: white;
   color: rgb(85, 60, 14);
-  font-size: 1.6em;
-  font-family: monospace;
-  font-weight: bold;
+  /* padding: 0.9375em 1.25em;  */
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.30em; 
   text-align: center;
   line-height: 1em;
   border: 2px solid #FF8055;
-  padding: 10px 20px;
+  padding: 10px 10px;
   cursor: pointer;
   display: inline-block;
   margin: 10px;
   border-radius: 10px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   width: 200px;
   z-index: 1;
 
 }
 .buttonReturnRegister {
-  padding: 0.9375em 1.25em; /*15px 20px*/
+
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
+  text-align: center;
+  line-height: 1em;
   background-color: #32B2B5; 
   color: white;
   border: none; 
-  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  padding: 10px 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 10px;
+  /* white-space: nowrap; */
+  width: 200px;
+  z-index: 1;
   position: relative;
   z-index: 1; 
-  cursor: pointer;
+
 }
 .buttonReturnRegister:hover {
   background-color: brown;
   border: 1px solid brown (4, 161, 223);
 }
 .buttonRegisterRegister {
-  padding: 0.9375em 1.25em; /*15px 20px*/
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
+  text-align: center;
+  line-height: 1em;
   background-color: #32B2B5; 
   color: white;
   border: none; 
-  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  padding: 10px 10px;
+  cursor: pointer;
+  display: inline-block;
+  margin: 10px;
+  border-radius: 10px;
+  /* white-space: nowrap; */
+  width: 200px;
+  z-index: 1;
   position: relative;
   z-index: 1; 
-  cursor: pointer;
 }
 .buttonRegisterRegister:hover {
   background-color: brown;
@@ -179,7 +199,7 @@ img {
 /*colorcito al login*/
 .login-background {
   background: url("img/rebozoEncendido.png");
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px;
@@ -188,7 +208,7 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh; 
+  height: 100vh;
 }
 .header-text {
   color: white;
@@ -201,7 +221,7 @@ img {
   max-width: 100%;
   z-index: 1;
   text-align: center;
-  background-color: rgba(254, 254, 254, 0.1); 
+  background-color: rgba(254, 254, 254, 0.1);
   backdrop-filter: blur(10px); /* Agrega un efecto de difuminado */
 }
 /* Estilo para los botones y otros elementos en la sección */
@@ -209,7 +229,7 @@ section {
   text-align: center;
   position: relative;
   z-index: 1;
-   /* Agrega posición relativa para que estén por encima del fondo */
+  /* Agrega posición relativa para que estén por encima del fondo */
 }
 /* Estilo para centrar los elementos verticalmente en la sección */
 section > * {
@@ -220,16 +240,15 @@ form {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  text-align: center; 
+  text-align: center;
   position: relative;
   z-index: 1;
 }
 /* Estilo para los elementos dentro del formulario */
 form > * {
-  margin: 10px 0; 
+  margin: 10px 0;
   position: relative;
   z-index: 1;
-  
 }
 /* Estilo para los campos de entrada de texto */
 input {
@@ -240,7 +259,7 @@ input {
   font-weight: bold;
   text-align: center;
   line-height: 1em;
-  border: 2px solid #FF8055;
+  border: 2px solid #ff8055;
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
@@ -258,26 +277,25 @@ input {
   position: relative; */
 }
 
-
 /* Estilo para los botones en el formulario */
 form button {
   padding: 0.9375em 1.25em; /*15px 20px*/
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 1.30em; 
-  background-color: #32B2B5; 
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 1.3em;
+  background-color: #32b2b5;
   color: white;
-  border: none; 
+  border: none;
   border-radius: 0.5em; /* 8px / 16px = 0.5em */
   position: relative;
-  z-index: 1;  
+  z-index: 1;
 }
 /* Estilo para los enlaces de "¿Olvidaste tu contraseña?" y "¿Aún no tienes cuenta?" */
 form p a {
-  color: #4D4C4C;; /* Color de enlace */
+  color: #4d4c4c; /* Color de enlace */
   text-decoration: none; /* Sin subrayado */
   position: relative;
   z-index: 1;
-}  
+}
 /* Estilo para el fondo blanco */
 .white-background {
   background-color: white;
@@ -290,18 +308,18 @@ form p a {
 }
 /* Estilos para el título y subtítulo */
 h2 {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 70px; 
-  margin-top: 90px; 
-  font-weight: bold; 
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 70px;
+  margin-top: 90px;
+  font-weight: bold;
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 }
 
 h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #4D4C4C;
+  color: #4d4c4c;
   letter-spacing: 1px;
   position: relative;
   z-index: 1; /* Coloca los subtítulos por encima del cuadro blanco */
@@ -316,8 +334,8 @@ h3 {
 
 .inline-text {
   display: inline;
-  margin-right: 2px; 
-  color: #4D4C4C;
+  margin-right: 2px;
+  color: #4d4c4c;
 }
 p {
   display: block;
@@ -325,5 +343,5 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  color: #4D4C4C;
+  color: #4d4c4c;
 }

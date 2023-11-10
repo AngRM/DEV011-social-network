@@ -1,9 +1,6 @@
-import { registerNewUser, storeUserInfo } from '../lib/auth';
+import { registerNewUser, storeUserInfo } from "../lib/auth";
 // file register.js
 function register(navigateTo) {
-  // const whiteBackground1 = document.createElement("div");
-  // whiteBackground1.classList.add("white-background"); // Agrega una clase al div
-  // whiteBackground1.style.zIndex = "0"; // Asegura que el fondo blanco e
   const section = document.createElement('section');
   const title = document.createElement('h2');
   const subTitle = document.createElement('h3');
@@ -19,8 +16,8 @@ function register(navigateTo) {
   const whiteBackground1 = document.createElement('div');
 
   whiteBackground1.classList.add('white-background1'); // Agrega una clase al div
-  whiteBackground1.style.zIndex = '0'; // Asegura que el fo
-  section.classList.add('login-background');
+  whiteBackground1.style.zIndex = '0'; // Asegura que el fondo blanco e
+  section.classList.add('formRegister');
   inputName.classList.add('inputRegister');
   inputEmail.classList.add('inputRegister');
   inputCountry.classList.add('inputRegister');
@@ -30,22 +27,22 @@ function register(navigateTo) {
   buttonReturn.classList.add('buttonReturnRegister');
   buttonRegister.classList.add('buttonRegisterRegister');
 
-  inputName.placeholder = 'Nombre y Apellido';
-  inputEmail.placeholder = 'Correo electrónico';
-  inputCountry.placeholder = 'Pais';
-  inputRegion.placeholder = 'Región';
-  inputPass.placeholder = 'Crea una contraseña';
-  inputPassConfirm.placeholder = 'Confirma tu contraseña';
+  inputName.placeholder = "Nombre y Apellido";
+  inputEmail.placeholder = "Correo electrónico";
+  inputCountry.placeholder = "Pais";
+  inputRegion.placeholder = "Región";
+  inputPass.placeholder = "Crea una contraseña";
+  inputPassConfirm.placeholder = "Confirma tu contraseña";
 
-  title.textContent = 'Registro';
-  subTitle.textContent = 'Ingresa los siguientes datos:';
-  buttonRegister.textContent = 'Registrate';
-  buttonReturn.textContent = 'Atrás';
+  title.textContent = "Registro";
+  subTitle.textContent = "Ingresa los siguientes datos:";
+  buttonRegister.textContent = "Registrate";
+  buttonReturn.textContent = "Atrás";
 
-  buttonRegister.addEventListener('click', () => {
+  buttonRegister.addEventListener("click", () => {
     // Validar que las contraseñas coincidan
     if (inputPass.value !== inputPassConfirm.value) {
-      console.error('Las contraseñas no coinciden');
+      console.error("Las contraseñas no coinciden");
       return;
     }
 
@@ -54,7 +51,7 @@ function register(navigateTo) {
       .then((userCredential) => {
         // El usuario se ha registrado exitosamente
         const user = userCredential.user;
-        console.log('Usuario registrado: ', user);
+        console.log("Usuario registrado: ", user);
 
         // Aquí puedes guardar información adicional del usuario en Firestore si es necesario
         const userInfo = {
@@ -69,27 +66,27 @@ function register(navigateTo) {
         storeUserInfo(userInfo)
           .then(() => {
             console.log(
-              'Información adicional del usuario almacenada en Firestore',
+              "Información adicional del usuario almacenada en Firestore"
             );
             // Redirigir al usuario al 'wall'
-            navigateTo('/wall');
+            navigateTo("/wall");
           })
           .catch((error) => {
             console.error(
-              'Error al almacenar información adicional del usuario en Firestore: ',
-              error,
+              "Error al almacenar información adicional del usuario en Firestore: ",
+              error
             );
           });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error('Error al registrar usuario: ', errorCode, errorMessage);
+        console.error("Error al registrar usuario: ", errorCode, errorMessage);
       });
   });
 
-  buttonReturn.addEventListener('click', () => {
-    navigateTo('/');
+  buttonReturn.addEventListener("click", () => {
+    navigateTo("/");
   });
   section.appendChild(whiteBackground1);
   form.append(
@@ -99,10 +96,8 @@ function register(navigateTo) {
     inputEmail,
     inputPass,
     inputPassConfirm,
-    buttonRegister,
-    buttonReturn,
   );
-  section.append(title, subTitle, form);
+  section.append(title, subTitle, form, buttonRegister, buttonReturn);
   return section;
 }
 
