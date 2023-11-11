@@ -30,6 +30,7 @@ function login(navigateTo) {
 
   inputEmail.placeholder = 'Ingresa correo';
   inputPass.placeholder = 'Contraseña';
+  inputPass.type = 'password';
 
   title.textContent = 'Acceso';
   subTitle.textContent = 'Inicia sesión para continuar';
