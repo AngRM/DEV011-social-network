@@ -92,6 +92,7 @@ function register(navigateTo) {
     navigateTo('/');
   });
   section.appendChild(whiteBackground1);
+
   form.append(
     inputName,
     inputCountry,
@@ -102,7 +103,9 @@ function register(navigateTo) {
     buttonRegister,
     buttonReturn,
   );
+
   section.append(title, subTitle, form);
+
   return section;
 }
 

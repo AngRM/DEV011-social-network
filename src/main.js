@@ -36,9 +36,9 @@ function navigateTo(hash) {
   }
 }
 
-function returnHome() {
-  navigateTo('/');
-}
+// function returnHome(){ void
+//   navigateTo(any)
+// }
 
 window.onpopstate = () => {
   navigateTo(window.location.pathname);

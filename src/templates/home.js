@@ -1,4 +1,5 @@
 import { loginGoogle } from '../lib/auth.js';
+import logoGoogle from '../img/google.png';
 
 // file home.js
 function home(navigateTo) {
@@ -6,7 +7,7 @@ function home(navigateTo) {
   const sectionRebozoHome = document.createElement('section');
   const sectionForm = document.createElement('section');
   const divLogo = document.createElement('div');
-  // const imgLogo = document.createElement('img');
+  const imgGoogle = document.createElement('img');
   const title = document.createElement('h2');
   const buttonLogin = document.createElement('button');
   const buttonGoogle = document.createElement('button');
@@ -18,28 +19,34 @@ function home(navigateTo) {
   buttonLogin.classList.add('botonesHome');
   buttonGoogle.classList.add('botonesHomeG');
   buttonRegister.classList.add('botonesHome');
+  imgGoogle.classList.add('google-image');
 
-  const Logo = '<img id=\'imgLogo\' src=img/Logo.png width=\'200px\' heigth=\'200px\'>';
+  const Logo = "<img id='imgLogo' src=img/Logo.png width='200px' heigth='200px'>";
   divLogo.innerHTML = Logo;
   buttonLogin.textContent = 'Iniciar sesión';
-  buttonGoogle.innerHTML = ' Inicia con <img src="img.google.png">';
+  const google = "<img id='imgLogoG' src=img/google.png width='20px' heigth='20px'>";
+  buttonGoogle.innerHTML = ` Inicia con     ${google}`;
   buttonRegister.textContent = 'Crear cuenta';
+
+  // imgGoogle.alt = 'google-img';
+  // imgGoogle.src = logoGoogle;
+  // botonesHomeG.appendChild(imgGoogle);
 
   buttonLogin.addEventListener('click', () => navigateTo('/login'));
   buttonRegister.addEventListener('click', () => navigateTo('/register'));
   buttonGoogle.addEventListener('click', () => {
     loginGoogle()
       .then((result) => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
+        // This gives you a Google Access Token. You can use it to access the Google API.
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
         navigateTo('/wall');
         return user;
-      // ...
+        // ...
       })
       .catch((error) => {
-      // Handle Errors here.
+        // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
         // The email of the user's account used.
@@ -53,7 +60,7 @@ function home(navigateTo) {
   title.textContent = 'El verdadero sabor de nuestra tierra';
 
   sectionRebozoHome.append(title, divLogo);
-  sectionForm.append(buttonLogin, buttonGoogle, buttonRegister);
+  sectionForm.append(buttonLogin, buttonRegister, buttonGoogle);
   section.append(sectionRebozoHome, sectionForm);
 
   return section;

@@ -1,33 +1,24 @@
 body {
   background-color: white;
-  /* display: flex; ---- para que el fondo en login quede bien...*/
-  /* justify-content: center;
   align-items: center;
   height: 100%;
-  margin: 0;
-  padding: 0; */
-  align-items: center;
-  height: 100%;
+  width: 100%;
   margin: 0;
   padding: 0;
   /* overflow: hidden; */
-  }
-
+}
+/* --------------------Estilos para:'home.js'---------------------- */
 .homeRebozo {
   display: flex;
   align-content: center;
+  align-items: center;
   justify-content: space-between;
-  /* height: 400px; */
   gap: 10px;
   flex-direction: column;
-  /* flex: 1; */
-  /* padding-bottom: 4%; */
-  align-items: center;
   height: 50%;
   background: url("img/rebozoEncendido.png") center/cover no-repeat;
 }
 .slogan {
-  
   color: rgb(250, 244, 244); /* Color del texto */
   font-size: x-large; /*Tamaño de fuente */
   font-family: monospace; /* Familia de fuentes */
@@ -69,9 +60,9 @@ body {
   padding: 0.9375em 1.25em; /*15px 20px*/
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
-  background-color: #32B2B5; 
-  color: white;
-  border: none; 
+  background-color: white; 
+  color: #32B2B5  ;
+  border: 2px solid #32B2B5; 
   border-radius: 0.5em; /* 8px / 16px = 0.5em */
   position: relative;
   z-index: 1; 
@@ -121,6 +112,8 @@ img {
   right: 0;
   bottom: 35px;
   z-index: -1;
+  margin-top: 5em;
+  margin-bottom: -1em;
 }
 
 /* Estilos para inputs y botones */
@@ -144,7 +137,7 @@ img {
 
 }
 .buttonReturnRegister {
-  padding: 0.9375em 1.25em; /*15px 20px*/
+  padding: 0em 0em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
   background-color: #32B2B5; 
@@ -154,13 +147,16 @@ img {
   position: relative;
   z-index: 1; 
   cursor: pointer;
+  width: 13em;
+  height: 2em;
+
 }
 .buttonReturnRegister:hover {
   background-color: brown;
   border: 1px solid brown (4, 161, 223);
 }
 .buttonRegisterRegister {
-  padding: 0.9375em 1.25em; /*15px 20px*/
+  padding: 0em 0em; /*15px 20px*/
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
   background-color: #32B2B5; 
@@ -168,8 +164,11 @@ img {
   border: none; 
   border-radius: 0.5em; /* 8px / 16px = 0.5em */
   position: relative;
-  z-index: 1; 
   cursor: pointer;
+  width: 13em;
+  height: 2em;
+  justify-content: center;
+  text-align: center;
 }
 .buttonRegisterRegister:hover {
   background-color: brown;
@@ -179,7 +178,7 @@ img {
 /*colorcito al login*/
 .login-background {
   background: url("img/rebozoEncendido.png");
-  background-size: 100% 100%; 
+  background-size: 100% 100%;
   background-position: center;
   background-repeat: no-repeat;
   padding: 20px;
@@ -188,10 +187,10 @@ img {
   align-items: center;
   justify-content: center;
   text-align: center;
-  height: 100vh; 
-}
+ }
+
 .header-text {
-  color: white;
+  color: rgb(241, 146, 12);
   font-size: 5vw;
   position: absolute;
   top: 9px;
@@ -201,15 +200,16 @@ img {
   max-width: 100%;
   z-index: 1;
   text-align: center;
-  background-color: rgba(254, 254, 254, 0.1); 
-  backdrop-filter: blur(10px); /* Agrega un efecto de difuminado */
+  /*background-color: rgba(254, 254, 254, 0.1);
+  /*backdrop-filter: blur(10px);/*Agrega un efecto de difuminado*/
+  text-shadow: 2px 2px 2px black;
 }
 /* Estilo para los botones y otros elementos en la sección */
 section {
   text-align: center;
   position: relative;
   z-index: 1;
-   /* Agrega posición relativa para que estén por encima del fondo */
+  /* Agrega posición relativa para que estén por encima del fondo */
 }
 /* Estilo para centrar los elementos verticalmente en la sección */
 section > * {
@@ -220,13 +220,13 @@ form {
   display: flex;
   flex-direction: column;
   /* align-items: center; */
-  text-align: center; 
+  text-align: center;
   position: relative;
   z-index: 1;
 }
 /* Estilo para los elementos dentro del formulario */
 form > * {
-  margin: 10px 0; 
+  margin: 10px 0;
   position: relative;
   z-index: 1;
   
@@ -240,7 +240,7 @@ input {
   font-weight: bold;
   text-align: center;
   line-height: 1em;
-  border: 2px solid #FF8055;
+  border: 2px solid #ff8055;
   padding: 10px 20px;
   cursor: pointer;
   display: inline-block;
@@ -258,10 +258,9 @@ input {
   position: relative; */
 }
 
-
 /* Estilo para los botones en el formulario */
 form button {
-  padding: 0.9375em 1.25em; /*15px 20px*/
+  padding: 0em 0em;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
   background-color: #32B2B5; 
@@ -269,15 +268,33 @@ form button {
   border: none; 
   border-radius: 0.5em; /* 8px / 16px = 0.5em */
   position: relative;
-  z-index: 1;  
+  z-index: 1; 
+  cursor: pointer;
+  width: 13em;
+  height: 2em;
+}
+.buttonReturn {
+  padding: 0em 0em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.30em; 
+  background-color: #32B2B5; 
+  color: white;
+  border: none; 
+  border-radius: 0.5em; /* 8px / 16px = 0.5em */
+  position: relative;
+  z-index: 1; 
+  cursor: pointer;
+  width: 13em;
+  height: 2em;
+
 }
 /* Estilo para los enlaces de "¿Olvidaste tu contraseña?" y "¿Aún no tienes cuenta?" */
 form p a {
-  color: #4D4C4C;; /* Color de enlace */
+  color: #4d4c4c; /* Color de enlace */
   text-decoration: none; /* Sin subrayado */
   position: relative;
   z-index: 1;
-}  
+}
 /* Estilo para el fondo blanco */
 .white-background {
   background-color: white;
@@ -287,21 +304,23 @@ form p a {
   right: 0;
   bottom: 35px;
   z-index: -1;
+  margin-top: 4em;
+  margin-bottom: 0em;
 }
 /* Estilos para el título y subtítulo */
 h2 {
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 70px; 
-  margin-top: 90px; 
-  font-weight: bold; 
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 70px;
+  margin-top: 90px;
+  font-weight: bold;
   position: relative;
-  z-index: 1; 
+  z-index: 1;
 }
 
 h3 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  color: #4D4C4C;
+  color: #4d4c4c;
   letter-spacing: 1px;
   position: relative;
   z-index: 1; /* Coloca los subtítulos por encima del cuadro blanco */
@@ -316,8 +335,8 @@ h3 {
 
 .inline-text {
   display: inline;
-  margin-right: 2px; 
-  color: #4D4C4C;
+  margin-right: 2px;
+  color: #4d4c4c;
 }
 p {
   display: block;
@@ -325,5 +344,5 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  color: #4D4C4C;
+  color: #4d4c4c;
 }
