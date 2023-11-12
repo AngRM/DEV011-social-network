@@ -1,5 +1,4 @@
 import { loginGoogle } from '../lib/auth.js';
-import logoGoogle from '../img/google.png';
 
 // file home.js
 function home(navigateTo) {

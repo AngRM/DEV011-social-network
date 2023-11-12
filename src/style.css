@@ -219,7 +219,7 @@ section > * {
 form {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center; 
   text-align: center;
   position: relative;
   z-index: 1;

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { loginUser } from '../lib/auth';
 
 // file login.js
@@ -24,6 +25,10 @@ function login(navigateTo) {
   buttonNewUser.classList.add('create-account-button');
   const headerTextContainer = document.createElement('div');
   const headerText = document.createElement('div');
+  /// ///////////////////////////////////////////////////
+  const errorText = document.createElement('p');
+  errorText.textContent = 'Error al ingresar a tu cuenta, revisa que tu correo y contraseña sean correctos';
+  /// ///////////////////////////////////////////////////
   headerText.textContent = 'El verdadero sabor de nuestra tierra';
   headerText.classList.add('header-text'); // Agrega una clase al div
   headerTextContainer.appendChild(headerText);
@@ -59,6 +64,11 @@ function login(navigateTo) {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        /// ///////////////////////////////////////////////////
+        form.append(errorText);
+        // eslint-disable-next-line no-console
+        console.log(' o no error');
+        /// ///////////////////////////////////////////////////s
         console.log(errorCode, errorMessage);
       });
   });
