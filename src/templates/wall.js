@@ -26,6 +26,7 @@ export default function wall() {
   const buttonPost = document.createElement('button');
   const sectionPosts = document.createElement('section');
   const postsContainer = document.createElement('div');
+  
 
   section.classList.add('backgroundWall');
   sectionUser.classList.add('sectionUser');
@@ -36,6 +37,7 @@ export default function wall() {
   sectionPosts.classList.add('sectionPosts');
   postsContainer.classList.add('postsCont');
   postArea.placeholder = 'Escribe una nueva publicación...';
+  postsContainer.id = 'postcon';
 
   const dataUser = `
     <dl itemscope itemtype='user'>
@@ -48,7 +50,9 @@ export default function wall() {
   buttonPost.textContent = 'Publicar';
   sectionUser.innerHTML = dataUser;
 
-  section.append(title, sectionUser, newPostForm, postArea, buttonPost);
+  newPostForm.append(postArea, buttonPost);
+
+  section.append(title, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
 
   buttonPost.addEventListener('click', (event) => {
@@ -66,16 +70,11 @@ export default function wall() {
   listenForPosts((querySnapshot) => {
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
+      const mensajePosts = document.createElement('p');
+      mensajePosts.textContent = `${doc.data().author}: ${doc.data().content}`;
+      postsContainer.append(mensajePosts);
     });
   });
-
-  // const unsubscribe = listenForPosts((posts) => {
-  //   postsContainer.innerHTML = '';
-  //   posts.forEach((postData) => {
-  //     const postElement = createPostElement(postData);
-  //     postsContainer.appendChild(postElement);
-  //   });
-  // });
 
   sectionPosts.append(postsContainer);
   return section;
