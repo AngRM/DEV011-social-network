@@ -5,6 +5,7 @@ import login from './templates/login.js';
 import error from './error.js';
 import register from './templates/register.js';
 import wall from './templates/wall.js';
+import { db } from './lib/firebase.js';
 
 const routes = [
   { path: '/', component: home },

@@ -7,7 +7,8 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
-  getFirestore, collection, getDocs, addDoc} from 'firebase/firestore';
+  getFirestore, collection, getDocs, addDoc, query, orderBy, onSnapshot,
+} from 'firebase/firestore';
 import { app } from './firebaseConfig.js';
 
 export const auth = getAuth(app);
@@ -23,4 +24,7 @@ export {
   collection,
   getDocs,
   addDoc,
+  query,
+  orderBy,
+  onSnapshot,
 };
