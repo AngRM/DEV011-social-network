@@ -61,13 +61,14 @@ export default function wall() {
     if (content) {
       // Agregar el nuevo post a Firestore
       console.log('contenido nuevo');
-      addNewPost('María', content);
+      addNewPost('pedro', content);
     } else {
       console.log('error');
     }
   });
 
   listenForPosts((querySnapshot) => {
+    postsContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
       console.log(doc.data());
       const mensajePosts = document.createElement('p');
