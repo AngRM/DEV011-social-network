@@ -1,4 +1,5 @@
 // Importa la función para agregar nuevos posts
+import { auth } from '../lib/firebase';
 import { addNewPost, listenForPosts } from '../lib/store';
 
 function createPostElement(postData) {
@@ -57,11 +58,13 @@ export default function wall() {
 
   buttonPost.addEventListener('click', (event) => {
     event.preventDefault();
+    const userActual = auth.currentUser;
+    const validateUser = userActual !== null ? userActual.displayName : "user"
     const content = postArea.value.trim();
     if (content) {
       // Agregar el nuevo post a Firestore
       console.log('contenido nuevo');
-      addNewPost('pedro', content);
+      addNewPost(validateUser, content);
     } else {
       console.log('error');
     }
