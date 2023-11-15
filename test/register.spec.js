@@ -1,4 +1,3 @@
-// test de Christal xd
 /**
  * @jest-environment jsdom
  */
