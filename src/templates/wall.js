@@ -27,8 +27,14 @@ export default function wall() {
   const sectionPosts = document.createElement('section');
   const postsContainer = document.createElement('div');
 
+  const divLogoB = document.createElement('div');
+  divLogoB.classList.add('logo-blanco');
+  const LogoBlanco = "<img id='imgLogoB' src=img/yummyBlanco.png width='200px' heigth='200px'>";
+  divLogoB.innerHTML = LogoBlanco;
+
   section.classList.add('backgroundWall');
   sectionUser.classList.add('sectionUser');
+  title.classList.add('title-muro');
   newPostForm.classList.add('post');
   postArea.classList.add('postArea');
   buttonPost.classList.add('buttonPost');
@@ -45,13 +51,13 @@ export default function wall() {
       <dt>País:</dt><dd itemprop='country'>Colombia</dd>
     </dl>`;
 
-  title.textContent = 'Muro';
+  // title.textContent = 'Yummy';
   buttonPost.textContent = 'Publicar';
   sectionUser.innerHTML = dataUser;
 
   newPostForm.append(postArea, buttonPost);
 
-  section.append(title, sectionUser, newPostForm, sectionPosts);
+  section.append(title, divLogoB, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
 
   buttonPost.addEventListener('click', (event) => {

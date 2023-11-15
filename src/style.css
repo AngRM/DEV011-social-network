@@ -348,21 +348,53 @@ p {
 /* estilos para wall */
 
 .backgroundWall {
-  background: url("img/rebozoEncendido.png");
+  background: url("img/rebozoRosita.png");
 }
-
+.title-muro{
+  color: rgb(234, 243, 233);
+}
 .post{
-  background-color: #ec7046;
+  background-color: #e6dcd9;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  border-radius: 10px; 
+  margin-bottom: 20px; /* Aumenta el espacio entre posts */
+  box-shadow: 0 4px 3px rgba(0, 0, 0, 2); 
 }
-.sectionUser{
-  background-color: #f5f0f0;
+.post p {
+  margin: 0; /* Elimina el margen predeterminado de los párrafos dentro de los posts */
+}
+.sectionUser {
+  background: url('img/blackplate.png');
+  border: #f3f0ee;
+  margin-top: -2em;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Arial', sans-serif;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  text-shadow: 4px 4px 4px rgba(0, 0, 0, 2); /* Agregando sombra de texto */
 }
 
 .postArea{
   background-color: #f3f0ee;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  width: 30em;
-  height: 5em;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  width: 90%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #32B2B5;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  resize: none; /* Evita que el usuario pueda redimensionar el textarea */
+  font-size: 16px;
+  line-height: 1;
+}
+
+.postArea:focus {
+  outline: none; 
 }
 
 .buttonPost{
@@ -376,12 +408,17 @@ p {
   position: relative;
   z-index: 1; 
   cursor: pointer;
-  width: 13em;
+  width: 6em;
   height: 2em;
 }
 .postsCont{
-  background-color: #125994;
+  background: url("img/rebozoRosita.png");
+  padding: 20px;
 }
-.sectionPosts{
-  background-color: aqua;
+.sectionPosts {
+  background-color: #fff; /* Cambia el color de fondo de la sección de posts */
+  border-radius: 10px; /* Bordes más redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  padding: 20px; /* Añade un espacio de relleno */
+  margin-top: 20px; /* Aumenta el espacio entre la sección de usuario y los posts */
 }
