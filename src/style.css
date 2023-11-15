@@ -364,19 +364,34 @@ p {
 .post p {
   margin: 0; /* Elimina el margen predeterminado de los párrafos dentro de los posts */
 }
+
 .sectionUser {
-  background: url('img/blackplate.png');
-  border: #f3f0ee;
-  margin-top: -2em;
-  color: #ffffff;
+  background-color: #f8f8f8; /* Color de fondo suave */
+  border-radius: 10px; /* Bordes redondeados */
+  border: #8a4313;
+  padding: 20px; /* Espaciado interno */
+  display: flex;
+  flex-direction: column;
+  align-items:start;
+  color: #32B2B5;
   font-size: 20px;
   font-weight: bold;
   font-family: 'Arial', sans-serif;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(209, 20, 20, 0.1);
   margin-bottom: 20px;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 2); /* Agregando sombra de texto */
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
+}
+
+dl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+dt, dd {
+  margin: 5px 0; /* Espaciado entre elementos */
 }
 
 .postArea{

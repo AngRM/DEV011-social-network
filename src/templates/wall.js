@@ -1,6 +1,8 @@
+// Importa las funciones necesarias
 import { auth } from '../lib/firebase';
 import { addNewPost, listenForPosts } from '../lib/store';
 
+// Función para crear elementos de post
 function createPostElement(postData) {
   const postElement = document.createElement('div');
   postElement.classList.add('post');
@@ -11,8 +13,36 @@ function createPostElement(postData) {
   const contentElement = document.createElement('p');
   contentElement.textContent = `${postData.content}`;
 
+  const likeButton = document.createElement('button');
+  likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Puedes personalizar este ícono
+
+  const editButton = document.createElement('button');
+  editButton.innerHTML = '<i class="fas fa-edit"></i>'; // Puedes personalizar este ícono
+
+  const deleteButton = document.createElement('button');
+  deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
+
+// Agrega funciones de clic para cada botón
+  likeButton.addEventListener('click', () => {
+    // Lógica para dar like
+    console.log(`Like para el post: ${postData.id}`);
+  });
+
+  editButton.addEventListener('click', () => {
+    // Lógica para editar el post
+    console.log(`Editar el post: ${postData.id}`);
+  });
+
+  deleteButton.addEventListener('click', () => {
+    // Lógica para borrar el post
+    console.log(`Borrar el post: ${postData.id}`);
+  });
+
   postElement.appendChild(authorElement);
   postElement.appendChild(contentElement);
+  postElement.appendChild(likeButton);
+  postElement.appendChild(editButton);
+  postElement.appendChild(deleteButton);
 
   return postElement;
 }
@@ -60,15 +90,14 @@ export default function wall() {
   section.append(title, divLogoB, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
 
-  buttonPost.addEventListener('click', (event) => {
+ buttonPost.addEventListener('click', async (event) => {
     event.preventDefault();
     const userActual = auth.currentUser;
     const validateUser = userActual !== null ? userActual.displayName : 'user';
     const content = postArea.value.trim();
     if (content) {
       // Agregar el nuevo post a Firestore
-      console.log('contenido nuevo');
-      addNewPost(validateUser, content);
+      await addNewPost(validateUser, content);
 
       // Limpiar el área de texto después de agregar el post
       postArea.value = '';
@@ -78,10 +107,10 @@ export default function wall() {
     }
   });
 
-  listenForPosts((querySnapshot) => {
+   listenForPosts((querySnapshot) => {
     postsContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      const postData = doc.data();
+      const postData = { id: doc.id, ...doc.data() };
       const postElement = createPostElement(postData);
       postsContainer.append(postElement);
     });
