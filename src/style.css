@@ -348,14 +348,14 @@ p {
 /* estilos para wall */
 
 .backgroundWall {
-  background-color: rgb(154, 167, 167);
+  background: url("img/rebozoEncendido.png");
 }
 
 .post{
-  background-color: #ff8055;
+  background-color: #ec7046;
 }
 .sectionUser{
-  background-color: #4d4c4c;
+  background-color: #f5f0f0;
 }
 
 .postArea{
@@ -380,7 +380,7 @@ p {
   height: 2em;
 }
 .postsCont{
-  background-color: #121294;
+  background-color: #125994;
 }
 .sectionPosts{
   background-color: aqua;
