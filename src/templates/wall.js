@@ -63,6 +63,9 @@ export default function wall() {
       // Agregar el nuevo post a Firestore
       console.log('contenido nuevo');
       addNewPost(validateUser, content);
+
+      // Limpiar el área de texto después de agregar el post
+      postArea.value = '';
     } else {
       console.log('error');
     }
