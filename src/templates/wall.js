@@ -67,7 +67,8 @@ export default function wall() {
       // Limpiar el área de texto después de agregar el post
       postArea.value = '';
     } else {
-      console.log('error');
+      // Mostrar un mensaje de error (puedes personalizar esto según tus necesidades)
+      alert('Por favor, ingresa contenido antes de publicar');
     }
   });
 
