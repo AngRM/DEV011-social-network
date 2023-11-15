@@ -1,4 +1,3 @@
-// Importa la función para agregar nuevos posts
 import { auth } from '../lib/firebase';
 import { addNewPost, listenForPosts } from '../lib/store';
 
@@ -7,10 +6,10 @@ function createPostElement(postData) {
   postElement.classList.add('post');
 
   const authorElement = document.createElement('p');
-  authorElement.textContent = `Author: ${postData.author}`;
+  authorElement.textContent = `${postData.author}`;
 
   const contentElement = document.createElement('p');
-  contentElement.textContent = `Content: ${postData.content}`;
+  contentElement.textContent = `${postData.content}`;
 
   postElement.appendChild(authorElement);
   postElement.appendChild(contentElement);
@@ -27,7 +26,6 @@ export default function wall() {
   const buttonPost = document.createElement('button');
   const sectionPosts = document.createElement('section');
   const postsContainer = document.createElement('div');
-  
 
   section.classList.add('backgroundWall');
   sectionUser.classList.add('sectionUser');
@@ -59,24 +57,27 @@ export default function wall() {
   buttonPost.addEventListener('click', (event) => {
     event.preventDefault();
     const userActual = auth.currentUser;
-    const validateUser = userActual !== null ? userActual.displayName : "user"
+    const validateUser = userActual !== null ? userActual.displayName : 'user';
     const content = postArea.value.trim();
     if (content) {
       // Agregar el nuevo post a Firestore
       console.log('contenido nuevo');
       addNewPost(validateUser, content);
+
+      // Limpiar el área de texto después de agregar el post
+      postArea.value = '';
     } else {
-      console.log('error');
+      // Mostrar un mensaje de error (puedes personalizar esto según tus necesidades)
+      alert('Por favor, ingresa contenido antes de publicar');
     }
   });
 
   listenForPosts((querySnapshot) => {
     postsContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
-      console.log(doc.data());
-      const mensajePosts = document.createElement('p');
-      mensajePosts.textContent = `${doc.data().author}: ${doc.data().content}`;
-      postsContainer.append(mensajePosts);
+      const postData = doc.data();
+      const postElement = createPostElement(postData);
+      postsContainer.append(postElement);
     });
   });
 
