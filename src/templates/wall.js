@@ -113,8 +113,8 @@ function wall(navigateTo) {
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
 
-    // Agrega funciones de clic para cada botón
-    likeButton.addEventListener('click', () => {
+// Agrega funciones de clic para cada botón
+  likeButton.addEventListener('click', () => {
     // Lógica para dar like
       console.log(`Like para el post: ${postData.id}`);
     });
@@ -135,7 +135,7 @@ function wall(navigateTo) {
     postElement.appendChild(editButton);
     postElement.appendChild(deleteButton);
 
-    return postElement;
-  }
+  return postElement;
+}
 }
 export default wall;

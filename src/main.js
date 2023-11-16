@@ -5,7 +5,7 @@ import login from './templates/login.js';
 import error from './error.js';
 import register from './templates/register.js';
 import wall from './templates/wall.js';
-import { db } from './lib/firebase.js';
+// import { db } from './lib/firebase.js';
 
 const routes = [
   { path: '/', component: home },
@@ -21,8 +21,8 @@ const root = document.getElementById('root');
 
 function navigateTo(hash) {
   const route = routes.find((routeFound) => routeFound.path === hash);
-  console.log('route', route);
-  console.log('route.component', route.component);
+  // console.log('route', route);
+  // console.log('route.component', route.component);
   if (route && route.component) {
     window.history.pushState(
       {},
