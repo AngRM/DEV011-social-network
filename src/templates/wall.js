@@ -2,53 +2,9 @@
 import { auth } from '../lib/firebase';
 import { addNewPost, listenForPosts } from '../lib/store';
 
-// Función para crear elementos de post
-function createPostElement(postData) {
-  const postElement = document.createElement('div');
-  postElement.classList.add('post');
-
-  const authorElement = document.createElement('p');
-  authorElement.textContent = `${postData.author}`;
-
-  const contentElement = document.createElement('p');
-  contentElement.textContent = `${postData.content}`;
-
-  const likeButton = document.createElement('button');
-  likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Puedes personalizar este ícono
-
-  const editButton = document.createElement('button');
-  editButton.innerHTML = '<i class="fas fa-edit"></i>'; // Puedes personalizar este ícono
-
-  const deleteButton = document.createElement('button');
-  deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
-
-// Agrega funciones de clic para cada botón
-  likeButton.addEventListener('click', () => {
-    // Lógica para dar like
-    console.log(`Like para el post: ${postData.id}`);
-  });
-
-  editButton.addEventListener('click', () => {
-    // Lógica para editar el post
-    console.log(`Editar el post: ${postData.id}`);
-  });
-
-  deleteButton.addEventListener('click', () => {
-    // Lógica para borrar el post
-    console.log(`Borrar el post: ${postData.id}`);
-  });
-
-  postElement.appendChild(authorElement);
-  postElement.appendChild(contentElement);
-  postElement.appendChild(likeButton);
-  postElement.appendChild(editButton);
-  postElement.appendChild(deleteButton);
-
-  return postElement;
-}
-
-export default function wall() {
+function wall(navigateTo) {
   const title = document.createElement('h2');
+  const buttonClose = document.createElement('button');
   const section = document.createElement('section');
   const sectionUser = document.createElement('section');
   const newPostForm = document.createElement('form');
@@ -63,6 +19,7 @@ export default function wall() {
   divLogoB.innerHTML = LogoBlanco;
 
   section.classList.add('backgroundWall');
+  buttonClose.classList.add('button-close');
   sectionUser.classList.add('sectionUser');
   title.classList.add('title-muro');
   newPostForm.classList.add('post');
@@ -82,15 +39,31 @@ export default function wall() {
     </dl>`;
 
   // title.textContent = 'Yummy';
+  buttonClose.textContent = 'Cerrar sesión';
   buttonPost.textContent = 'Publicar';
   sectionUser.innerHTML = dataUser;
 
+  const logout = () => {
+    auth.signOut()
+      .then(() => {
+        console.log('Usuario cerró sesión correctamente');
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
+      });
+  };
+
+  buttonClose.addEventListener('click', () => {
+    logout(); // Llamamos a la función de cierre de sesión
+    navigateTo('/home'); // Redirigimos a la página de inicio
+  });
+
   newPostForm.append(postArea, buttonPost);
 
-  section.append(title, divLogoB, sectionUser, newPostForm, sectionPosts);
+  section.append(title, divLogoB, buttonClose, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
 
- buttonPost.addEventListener('click', async (event) => {
+  buttonPost.addEventListener('click', async (event) => {
     event.preventDefault();
     const userActual = auth.currentUser;
     const validateUser = userActual !== null ? userActual.displayName : 'user';
@@ -107,10 +80,11 @@ export default function wall() {
     }
   });
 
-   listenForPosts((querySnapshot) => {
+  listenForPosts((querySnapshot) => {
     postsContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const postData = { id: doc.id, ...doc.data() };
+      // eslint-disable-next-line no-use-before-define
       const postElement = createPostElement(postData);
       postsContainer.append(postElement);
     });
@@ -118,4 +92,50 @@ export default function wall() {
 
   sectionPosts.append(postsContainer);
   return section;
+
+  // Función para crear elementos de post
+  function createPostElement(postData) {
+    const postElement = document.createElement('div');
+    postElement.classList.add('post');
+
+    const authorElement = document.createElement('p');
+    authorElement.textContent = `${postData.author}`;
+
+    const contentElement = document.createElement('p');
+    contentElement.textContent = `${postData.content}`;
+
+    const likeButton = document.createElement('button');
+    likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Puedes personalizar este ícono
+
+    const editButton = document.createElement('button');
+    editButton.innerHTML = '<i class="fas fa-edit"></i>'; // Puedes personalizar este ícono
+
+    const deleteButton = document.createElement('button');
+    deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
+
+    // Agrega funciones de clic para cada botón
+    likeButton.addEventListener('click', () => {
+    // Lógica para dar like
+      console.log(`Like para el post: ${postData.id}`);
+    });
+
+    editButton.addEventListener('click', () => {
+    // Lógica para editar el post
+      console.log(`Editar el post: ${postData.id}`);
+    });
+
+    deleteButton.addEventListener('click', () => {
+    // Lógica para borrar el post
+      console.log(`Borrar el post: ${postData.id}`);
+    });
+
+    postElement.appendChild(authorElement);
+    postElement.appendChild(contentElement);
+    postElement.appendChild(likeButton);
+    postElement.appendChild(editButton);
+    postElement.appendChild(deleteButton);
+
+    return postElement;
+  }
 }
+export default wall;

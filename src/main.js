@@ -12,6 +12,7 @@ const routes = [
   { path: '/login', component: login },
   { path: '/error', component: error },
   { path: '/register', component: register },
+  { path: '/home', component: home },
   { path: '/wall', component: wall },
 ];
 
