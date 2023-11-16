@@ -22,7 +22,7 @@ function createPostElement(postData) {
   const deleteButton = document.createElement('button');
   deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
 
-// Agrega funciones de clic para cada botón
+  // Agrega funciones de clic para cada botón
   likeButton.addEventListener('click', () => {
     // Lógica para dar like
     console.log(`Like para el post: ${postData.id}`);
@@ -90,7 +90,7 @@ export default function wall() {
   section.append(title, divLogoB, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
 
- buttonPost.addEventListener('click', async (event) => {
+  buttonPost.addEventListener('click', async (event) => {
     event.preventDefault();
     const userActual = auth.currentUser;
     const validateUser = userActual !== null ? userActual.displayName : 'user';
@@ -107,7 +107,7 @@ export default function wall() {
     }
   });
 
-   listenForPosts((querySnapshot) => {
+  listenForPosts((querySnapshot) => {
     postsContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const postData = { id: doc.id, ...doc.data() };
