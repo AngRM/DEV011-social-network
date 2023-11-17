@@ -7,7 +7,8 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth';
 import {
-  getFirestore, collection, getDocs, addDoc, query, orderBy, onSnapshot,
+  getFirestore, collection, getDocs, addDoc, query, orderBy, onSnapshot, doc,
+  deleteDoc,
 } from 'firebase/firestore';
 import { app } from './firebaseConfig.js';
 
@@ -27,4 +28,6 @@ export {
   query,
   orderBy,
   onSnapshot,
+  doc,
+  deleteDoc,
 };
