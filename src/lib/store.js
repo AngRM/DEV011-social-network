@@ -1,6 +1,6 @@
 // Importa los módulos necesarios de Firebase
 import {
-  db, collection, addDoc, getDocs, query, orderBy, onSnapshot,
+  db, collection, addDoc, getDocs, query, orderBy, onSnapshot, doc, deleteDoc,
 } from './firebase';
 // Conéctate a la base de datos de Firestore
 
@@ -18,6 +18,11 @@ export function listenForPosts(callback) {
   return onSnapshot(postsQuery, callback);
 }
 
+// funcion para eliminar los posts
+export const deletePost = (id) => {
+  deleteDoc(doc(db, 'posts', id));
+  console.log('cualquiercosa', id);
+};
 /*
    const posts = [];
     snapshot.forEach((doc) => {
