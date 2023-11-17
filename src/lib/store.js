@@ -36,12 +36,10 @@ export const getPost = async (id) => {
   return postDataEdit;
 };
 
-// export const getPost = (id) => {
-//   getDoc(doc(db, 'posts', id));
-//   console.log('cualquiercosatrayendo', getDoc(doc(db, 'posts', id)));
-// };
-
-// funcion para eliminar los posts
+export const updatePost =(id,content,author,timestamp)=> {
+  updateDoc(doc(db,'posts',id),content,author,timestamp);
+  console.log('cosa editada');
+}
 export const deletePost = (id) => {
   deleteDoc(doc(db, 'posts', id));
   console.log('cualquiercosa', id);

@@ -1,10 +1,12 @@
 // Importa las funciones necesarias
+import { Timestamp } from 'firebase/firestore';
 import { auth } from '../lib/firebase';
 import {
   addNewPost,
   listenForPosts,
   deletePost,
   getPost,
+  updatePost,
 } from '../lib/store';
 
 function wall(navigateTo) {
@@ -67,6 +69,7 @@ function wall(navigateTo) {
 
   section.append(title, divLogoB, buttonClose, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
+  let editPost=false;
 
   buttonPost.addEventListener('click', async (event) => {
     event.preventDefault();
@@ -76,7 +79,6 @@ function wall(navigateTo) {
     if (content) {
       // Agregar el nuevo post a Firestore
       await addNewPost(validateUser, content);
-
       // Limpiar el área de texto después de agregar el post
       postArea.value = '';
     } else {
@@ -127,6 +129,15 @@ function wall(navigateTo) {
     editButton.addEventListener('click', async () => {
     // Lógica para editar el post
       const postDataEdit = await getPost(postData.id);
+      postArea.textContent=postDataEdit.content;
+      if(!editPost){
+        const postData = { id: doc.id, ...doc.data() };
+        // eslint-disable-next-line no-use-before-define
+        const postElement = createPostElement(postData);
+        postsContainer.append(postElement);
+      }else{
+        updatePost(postData.id,postData.value,postData.author,Timestamp);
+      }
       console.log(`Editar el post: ${postData.id}`, postDataEdit);
     });
 
