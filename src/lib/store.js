@@ -1,6 +1,15 @@
 // Importa los módulos necesarios de Firebase
 import {
-  db, collection, addDoc, getDocs, query, orderBy, onSnapshot, doc, deleteDoc,
+  db,
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  orderBy,
+  onSnapshot,
+  doc,
+  deleteDoc,
+  getDoc,
 } from './firebase';
 // Conéctate a la base de datos de Firestore
 
@@ -17,6 +26,20 @@ export function listenForPosts(callback) {
   const postsQuery = query(collection(db, 'posts'), orderBy('timestamp', 'desc'));
   return onSnapshot(postsQuery, callback);
 }
+
+// Función para traer los datos del post
+
+export const getPost = async (id) => {
+  const docSnapshot = await getDoc(doc(db, 'posts', id));
+  const postDataEdit = docSnapshot.exists() ? { id: docSnapshot.id, ...docSnapshot.data() } : null;
+  console.log('cualquiercosatrayendo', postDataEdit);
+  return postDataEdit;
+};
+
+// export const getPost = (id) => {
+//   getDoc(doc(db, 'posts', id));
+//   console.log('cualquiercosatrayendo', getDoc(doc(db, 'posts', id)));
+// };
 
 // funcion para eliminar los posts
 export const deletePost = (id) => {

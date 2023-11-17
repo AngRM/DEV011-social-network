@@ -1,6 +1,11 @@
 // Importa las funciones necesarias
 import { auth } from '../lib/firebase';
-import { addNewPost, listenForPosts, deletePost } from '../lib/store';
+import {
+  addNewPost,
+  listenForPosts,
+  deletePost,
+  getPost,
+} from '../lib/store';
 
 function wall(navigateTo) {
   const title = document.createElement('h2');
@@ -119,9 +124,10 @@ function wall(navigateTo) {
       console.log(`Like para el post: ${postData.id}`);
     });
 
-    editButton.addEventListener('click', () => {
+    editButton.addEventListener('click', async () => {
     // Lógica para editar el post
-      console.log(`Editar el post: ${postData.id}`);
+      const postDataEdit = await getPost(postData.id);
+      console.log(`Editar el post: ${postData.id}`, postDataEdit);
     });
 
     deleteButton.addEventListener('click', () => {
