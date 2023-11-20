@@ -10,7 +10,9 @@ import {
   doc,
   deleteDoc,
   getDoc,
+  updateDoc,
 } from './firebase';
+
 // Conéctate a la base de datos de Firestore
 
 // Función para agregar un nuevo post a Firestore
@@ -18,6 +20,7 @@ export function addNewPost(author, content) {
   const timestamp = new Date();
   addDoc(collection(db, 'posts'), { author, content, timestamp });
 }
+
 // opcional si se quiere actualizar la página para ver las nuevas publicaciones
 export const querySnapshot = getDocs(collection(db, 'posts'));
 
@@ -28,7 +31,6 @@ export function listenForPosts(callback) {
 }
 
 // Función para traer los datos del post
-
 export const getPost = async (id) => {
   const docSnapshot = await getDoc(doc(db, 'posts', id));
   const postDataEdit = docSnapshot.exists() ? { id: docSnapshot.id, ...docSnapshot.data() } : null;
@@ -36,10 +38,11 @@ export const getPost = async (id) => {
   return postDataEdit;
 };
 
-export const updatePost =(id,content,author,timestamp)=> {
-  updateDoc(doc(db,'posts',id),content,author,timestamp);
+export const updatePost = (id, content, author, timestamp) => {
+  updateDoc(doc(db, 'posts', id), { content, author, timestamp });
   console.log('cosa editada');
-}
+};
+
 export const deletePost = (id) => {
   deleteDoc(doc(db, 'posts', id));
   console.log('cualquiercosa', id);

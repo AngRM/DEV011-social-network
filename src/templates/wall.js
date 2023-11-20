@@ -10,6 +10,7 @@ import {
 } from '../lib/store';
 
 function wall(navigateTo) {
+  let editPost = null;
   const title = document.createElement('h2');
   const buttonClose = document.createElement('button');
   const section = document.createElement('section');
@@ -69,7 +70,6 @@ function wall(navigateTo) {
 
   section.append(title, divLogoB, buttonClose, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
-  let editPost=false;
 
   buttonPost.addEventListener('click', async (event) => {
     event.preventDefault();
@@ -77,28 +77,22 @@ function wall(navigateTo) {
     const validateUser = userActual !== null ? userActual.displayName : 'user';
     const content = postArea.value.trim();
     if (content) {
-      // Agregar el nuevo post a Firestore
-      await addNewPost(validateUser, content);
-      // Limpiar el área de texto después de agregar el post
+      if (!editPost) {
+        // Agregar el nuevo post a Firestore
+        await addNewPost(validateUser, content);
+      } else {
+        // Editar el post existente
+        await updatePost(editPost.id, content, validateUser, Timestamp.now());
+        editPost = null; // Restablecer el estado de edición
+        buttonPost.textContent = 'Publicar'; // Restaurar el texto del botón
+      }
+      // Limpiar el área de texto después de agregar o editar el post
       postArea.value = '';
     } else {
       // Mostrar un mensaje de error (puedes personalizar esto según tus necesidades)
       alert('Por favor, ingresa contenido antes de publicar');
     }
   });
-
-  listenForPosts((querySnapshot) => {
-    postsContainer.innerHTML = '';
-    querySnapshot.forEach((doc) => {
-      const postData = { id: doc.id, ...doc.data() };
-      // eslint-disable-next-line no-use-before-define
-      const postElement = createPostElement(postData);
-      postsContainer.append(postElement);
-    });
-  });
-
-  sectionPosts.append(postsContainer);
-  return section;
 
   // Función para crear elementos de post
   function createPostElement(postData) {
@@ -127,18 +121,11 @@ function wall(navigateTo) {
     });
 
     editButton.addEventListener('click', async () => {
-    // Lógica para editar el post
+      // Lógica para editar el post
       const postDataEdit = await getPost(postData.id);
-      postArea.textContent=postDataEdit.content;
-      if(!editPost){
-        const postData = { id: doc.id, ...doc.data() };
-        // eslint-disable-next-line no-use-before-define
-        const postElement = createPostElement(postData);
-        postsContainer.append(postElement);
-      }else{
-        updatePost(postData.id,postData.value,postData.author,Timestamp);
-      }
-      console.log(`Editar el post: ${postData.id}`, postDataEdit);
+      postArea.value = postDataEdit.content;
+      editPost = postDataEdit; // Establecer el estado de edición
+      buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
     });
 
     deleteButton.addEventListener('click', () => {
@@ -155,5 +142,17 @@ function wall(navigateTo) {
 
     return postElement;
   }
+
+  listenForPosts((querySnapshot) => {
+    postsContainer.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const postData = { id: doc.id, ...doc.data() };
+      const postElement = createPostElement(postData);
+      postsContainer.append(postElement);
+    });
+  });
+
+  sectionPosts.append(postsContainer);
+  return section;
 }
 export default wall;
