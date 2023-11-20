@@ -144,8 +144,14 @@ function wall(navigateTo) {
     });
 
     deleteButton.addEventListener('click', () => {
-    // Lógica para borrar el post
-      deletePost(postData.id);
+      const userActual = auth.currentUser;
+      const validateUser = userActual !== null ? userActual.displayName : 'user';
+
+      if (postData.author === validateUser) {
+        deletePost(postData.id);
+      } else {
+        alert('No tienes permisos para eliminar este post.');
+      }
       console.log(`Borrar el post: ${postData.id}`);
     });
 
