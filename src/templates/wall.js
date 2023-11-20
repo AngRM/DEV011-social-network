@@ -129,9 +129,18 @@ function wall(navigateTo) {
     editButton.addEventListener('click', async () => {
       // Lógica para editar el post
       const postDataEdit = await getPost(postData.id);
-      postArea.value = postDataEdit.content;
-      editPost = postDataEdit; // Establecer el estado de edición
-      buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
+
+      // Verifica si el usuario actual es el autor del post
+      const userActual = auth.currentUser;
+      const validateUser = userActual !== null ? userActual.displayName : 'user';
+
+      if (postDataEdit.author === validateUser) {
+        postArea.value = postDataEdit.content;
+        editPost = postDataEdit; // Establecer el estado de edición
+        buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
+      } else {
+        alert('No tienes permisos para editar este post.');
+      }
     });
 
     deleteButton.addEventListener('click', () => {
