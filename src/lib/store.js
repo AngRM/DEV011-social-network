@@ -11,6 +11,7 @@ import {
   deleteDoc,
   getDoc,
   updateDoc,
+  where
 } from './firebase';
 
 // Conéctate a la base de datos de Firestore
@@ -54,3 +55,19 @@ export const deletePost = (id) => {
     });
     callback(posts);
 */
+
+export const getUserDoc = async (userId) => {
+  console.log(userId);
+  const objUser = {}
+  const queryUser = query(collection(db, 'users'), where('uid', "==", userId));
+  const querySnapshot = await getDocs(queryUser);
+
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+    console.log(doc.id, " => ", doc.data());
+    objUser.name = doc.data().name
+  });
+  return objUser
+}
+
+

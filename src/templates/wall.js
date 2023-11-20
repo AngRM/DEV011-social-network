@@ -7,6 +7,7 @@ import {
   deletePost,
   getPost,
   updatePost,
+  getUserDoc,
 } from '../lib/store';
 
 function wall(navigateTo) {
@@ -39,6 +40,8 @@ function wall(navigateTo) {
   postArea.placeholder = 'Escribe una nueva publicación...';
   postsContainer.id = 'postcon';
 
+  //const userActual = auth.currentUser;
+  //console.log ('usuario',userActual);
   const dataUser = `
     <dl itemscope itemtype='user'>
       <dt>Nombre:</dt><dd itemprop='name'>María</dd>
@@ -74,7 +77,11 @@ function wall(navigateTo) {
   buttonPost.addEventListener('click', async (event) => {
     event.preventDefault();
     const userActual = auth.currentUser;
-    const validateUser = userActual !== null ? userActual.displayName : 'user';
+    console.log('actual ', userActual);
+    const objUser = await getUserDoc(userActual.uid) //obteniendo info de colección usuario
+    console.log('x: ', objUser.name);
+    const validateUser = userActual.displayName !== null ? userActual.displayName : objUser.name;
+   
     const content = postArea.value.trim();
     if (content) {
       if (!editPost) {
@@ -96,6 +103,7 @@ function wall(navigateTo) {
 
   // Función para crear elementos de post
   function createPostElement(postData) {
+    console.log('información: ', postData);
     const postElement = document.createElement('div');
     postElement.classList.add('post');
 
@@ -123,14 +131,26 @@ function wall(navigateTo) {
     editButton.addEventListener('click', async () => {
       // Lógica para editar el post
       const postDataEdit = await getPost(postData.id);
+      // Verifica si el usuario actual es el autor del post
+      const userActual = auth.currentUser;
+      const validateUser = userActual !== null ? userActual.displayName : 'user';
+      if (postDataEdit.author === validateUser) {
       postArea.value = postDataEdit.content;
+
       editPost = postDataEdit; // Establecer el estado de edición
       buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
+    } else {
+      alert('No tienes permisos para editar este post.');
+    }
     });
-
     deleteButton.addEventListener('click', () => {
-    // Lógica para borrar el post
-      deletePost(postData.id);
+      const userActual = auth.currentUser;
+      const validateUser = userActual !== null ? userActual.displayName : 'user';
+      if (postData.author === validateUser) {
+        deletePost(postData.id);
+      } else {
+        alert('No tienes permisos para eliminar este post.');
+      }
       console.log(`Borrar el post: ${postData.id}`);
     });
 

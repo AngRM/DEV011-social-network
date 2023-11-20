@@ -35,14 +35,17 @@ function register(navigateTo) {
   inputCountry.placeholder = 'Pais';
   inputRegion.placeholder = 'Región';
   inputPass.placeholder = 'Crea una contraseña';
+  inputPass.type = 'password';
   inputPassConfirm.placeholder = 'Confirma tu contraseña';
+  inputPassConfirm.type = 'password';
 
   title.textContent = 'Registro';
   subTitle.textContent = 'Ingresa los siguientes datos:';
   buttonRegister.textContent = 'Registrate';
   buttonReturn.textContent = 'Atrás';
 
-  buttonRegister.addEventListener('click', () => {
+  buttonRegister.addEventListener('click', (event) => {
+    event.preventDefault();
     // Validar que las contraseñas coincidan
     if (inputPass.value !== inputPassConfirm.value) {
       console.error('Las contraseñas no coinciden');
@@ -71,8 +74,7 @@ function register(navigateTo) {
             console.log(
               'Información adicional del usuario almacenada en Firestore',
             );
-            // Redirigir al usuario al 'wall'
-            navigateTo('/wall');
+            
           })
           .catch((error) => {
             console.error(
@@ -80,6 +82,8 @@ function register(navigateTo) {
               error,
             );
           });
+          // Redirigir al usuario al 'wall'
+          navigateTo('/wall');
       })
       .catch((error) => {
         const errorCode = error.code;
