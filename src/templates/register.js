@@ -71,6 +71,7 @@ function register(navigateTo) {
         // Guardar información adicional del usuario en Firestore
         storeUserInfo(userInfo)
           .then(() => {
+
             console.log(
               'Información adicional del usuario almacenada en Firestore',
             );

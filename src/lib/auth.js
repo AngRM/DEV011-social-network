@@ -5,6 +5,7 @@ import {
 
 export const loginGoogle = () => signInWithPopup(auth, provider);
 
+// eslint-disable-next-line max-len
 export const registerNewUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
 
 export const loginUser = (email, password) => signInWithEmailAndPassword(auth, email, password);
