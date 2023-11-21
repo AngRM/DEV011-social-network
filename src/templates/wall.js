@@ -114,19 +114,13 @@ function wall(navigateTo) {
     contentElement.textContent = `${postData.content}`;
 
     const likeButton = document.createElement('button');
-    likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Puedes personalizar este ícono
+    likeButton.innerHTML = `<img src = ../img/likenegro.png width = '15px' heigth = '15px'>`;  // Puedes personalizar este ícono
 
     const editButton = document.createElement('button');
-    const editIcon = document.createElement('img');
-    editIcon.src = 'src/img/editarnegro.png'; // Ajusta la ruta según tu estructura de proyecto
-    editIcon.alt = 'Editar';
-    editButton.appendChild(editIcon);
-
+    editButton.innerHTML = `<img src = ../img/editarnegro.png width = '15px' heigth = '15px'>`;
     // Agregar el ícono al botón de editar
-    editButton.appendChild(editIcon);
-
     const deleteButton = document.createElement('button');
-    deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
+    deleteButton.innerHTML = `<img src = ../img/borrarnegro.png width = '15px' heigth = '15px'>`; // Puedes personalizar este ícono
 
     // Agrega funciones de clic para cada botón
     likeButton.addEventListener('click', () => {
