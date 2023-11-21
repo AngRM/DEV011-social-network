@@ -109,7 +109,13 @@ function wall(navigateTo) {
     likeButton.innerHTML = '<i class="fas fa-thumbs-up"></i>'; // Puedes personalizar este ícono
 
     const editButton = document.createElement('button');
-    editButton.innerHTML = '<i class="fas fa-edit"></i>'; // Puedes personalizar este ícono
+    const editIcon = document.createElement('img');
+    editIcon.src = 'src/img/editarnegro.png'; // Ajusta la ruta según tu estructura de proyecto
+    editIcon.alt = 'Editar';
+    editButton.appendChild(editIcon);
+
+    // Agregar el ícono al botón de editar
+    editButton.appendChild(editIcon);
 
     const deleteButton = document.createElement('button');
     deleteButton.innerHTML = '<i class="fas fa-trash"></i>'; // Puedes personalizar este ícono
@@ -123,14 +129,29 @@ function wall(navigateTo) {
     editButton.addEventListener('click', async () => {
       // Lógica para editar el post
       const postDataEdit = await getPost(postData.id);
-      postArea.value = postDataEdit.content;
-      editPost = postDataEdit; // Establecer el estado de edición
-      buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
+
+      // Verifica si el usuario actual es el autor del post
+      const userActual = auth.currentUser;
+      const validateUser = userActual !== null ? userActual.displayName : 'user';
+
+      if (postDataEdit.author === validateUser) {
+        postArea.value = postDataEdit.content;
+        editPost = postDataEdit; // Establecer el estado de edición
+        buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
+      } else {
+        alert('No tienes permisos para editar este post.');
+      }
     });
 
     deleteButton.addEventListener('click', () => {
-    // Lógica para borrar el post
-      deletePost(postData.id);
+      const userActual = auth.currentUser;
+      const validateUser = userActual !== null ? userActual.displayName : 'user';
+
+      if (postData.author === validateUser) {
+        deletePost(postData.id);
+      } else {
+        alert('No tienes permisos para eliminar este post.');
+      }
       console.log(`Borrar el post: ${postData.id}`);
     });
 
