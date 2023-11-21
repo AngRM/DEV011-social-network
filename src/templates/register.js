@@ -71,7 +71,11 @@ function register(navigateTo) {
         // Guardar información adicional del usuario en Firestore
         storeUserInfo(userInfo)
           .then(() => {
-            console.log('Información adicional del usuario almacenada en Firestore');
+
+            console.log(
+              'Información adicional del usuario almacenada en Firestore',
+            );
+            
           })
           .catch((error) => {
             console.error(
@@ -79,8 +83,8 @@ function register(navigateTo) {
               error,
             );
           });
-        // Redirigir al usuario al 'wall'
-        navigateTo('/wall');
+          // Redirigir al usuario al 'wall'
+          navigateTo('/wall');
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -18,6 +18,7 @@ import {
   deleteDoc,
   getDoc,
   updateDoc,
+  where
 } from 'firebase/firestore';
 import { app } from './firebaseConfig.js';
 
@@ -41,4 +42,5 @@ export {
   deleteDoc,
   getDoc,
   updateDoc,
+  where
 };
