@@ -43,32 +43,32 @@ function wall(navigateTo) {
   // const userActual = auth.currentUser;
   // console.log ('usuario',userActual);
 
-  // Función para actualizar la información del usuario
-  function updateUserInfo(userData) {
-    const userNameElement = document.getElementById('user-name');
-    const regionElement = document.getElementById('region');
-    const countryElement = document.getElementById('country');
+  // // Función para actualizar la información del usuario
+  // function updateUserInfo(userData) {
+  //   const userNameElement = document.getElementById('user-name');
+  //   const regionElement = document.getElementById('region');
+  //   const countryElement = document.getElementById('country');
 
-    // Actualiza el contenido de los elementos con la nueva información del usuario
-    userNameElement.textContent = userData.name;
-    regionElement.textContent = userData.region;
-    countryElement.textContent = userData.country;
-  }
+  //   // Actualiza el contenido de los elementos con la nueva información del usuario
+  //   userNameElement.textContent = userData.name;
+  //   regionElement.textContent = userData.region;
+  //   countryElement.textContent = userData.country;
+  // }
 
-  function updateUserInformation() {
-    const userActual = auth.currentUser;
-    if (userActual) {
-      getUserDoc(userActual.uid)
-        .then((userData) => {
-          updateUserInfo(userData);
-        })
-        .catch((error) => {
-          console.error('Error al obtener la información del usuario:', error);
-        });
-    }
-  }
-  // Llama a la función para inicializar la información del usuario
-  updateUserInformation();
+  // function updateUserInformation() {
+  //   const userActual = auth.currentUser;
+  //   if (userActual) {
+  //     getUserDoc(userActual.uid)
+  //       .then((userData) => {
+  //         updateUserInfo(userData);
+  //       })
+  //       .catch((error) => {
+  //         console.error('Error al obtener la información del usuario:', error);
+  //       });
+  //   }
+  // }
+  // // Llama a la función para inicializar la información del usuario
+  // updateUserInformation();
 
   const dataUser = `
     <dl itemscope itemtype='user'>
@@ -137,14 +137,14 @@ function wall(navigateTo) {
     contentElement.textContent = `${postData.content}`;
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-button');
-    likeButton.innerHTML = `<img src=../img/likeblanco.png width = '15px' heigth='15px'>`; // Puedes personalizar este ícono
+    likeButton.innerHTML = '<img src=../img/likeblanco.png width = \'15px\' heigth=\'15px\'>'; // Puedes personalizar este ícono
     // likeImage.src = `../img/likenegro.png width = '15px' heigth='15px'`;
     const editButton = document.createElement('button');
-    editButton.innerHTML = `<img src=../img/editarnegro.png width = '15px' heigth='15px'>`; // Puedes personalizar este ícono
+    editButton.innerHTML = '<img src=../img/editarnegro.png width = \'15px\' heigth=\'15px\'>'; // Puedes personalizar este ícono
     editButton.classList.add('edit-button');
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
-    deleteButton.innerHTML = `<img src=../img/borrarnegro.png width = '15px' heigth='15px'>`; // Puedes personalizar este ícono
+    deleteButton.innerHTML = '<img src=../img/borrarnegro.png width = \'15px\' heigth=\'15px\'>'; // Puedes personalizar este ícono
     // Agrega funciones de clic para cada botón
     likeButton.addEventListener('click', () => {
     // Lógica para dar like

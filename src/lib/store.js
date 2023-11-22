@@ -56,7 +56,9 @@ export const getUserDoc = async (userId) => {
   console.log(userId);
   const objUser = {};
   const queryUser = query(collection(db, 'users'), where('uid', '==', userId));
+  // eslint-disable-next-line no-shadow
   const querySnapshot = await getDocs(queryUser);
+  // eslint-disable-next-line no-shadow
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
     console.log(doc.id, '=>', doc.data());
