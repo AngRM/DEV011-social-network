@@ -155,17 +155,17 @@ function wall(navigateTo) {
       const postDataEdit = await getPost(postData.id);
       // Verifica si el usuario actual es el autor del post
       if (postDataEdit.uid === auth.currentUser.uid) {
-      postArea.value = postDataEdit.content;
-      editPost = postDataEdit; // Establecer el estado de edición
-      buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
-    } else {
-      alert('No tienes permisos para editar este post.');
-    }
+        postArea.value = postDataEdit.content;
+        editPost = postDataEdit; // Establecer el estado de edición
+        buttonPost.textContent = 'Guardar'; // Cambiar el texto del botón a "Guardar"
+      } else {
+        alert('No tienes permisos para editar este post.');
+      }
     });
     deleteButton.addEventListener('click', async () => {
       const postDataDelete = await getPost(postData.id);
-      //const userActual = auth.currentUser;
-      //const validateUser = userActual !== null ? userActual.displayName : objUser.name;
+      // const userActual = auth.currentUser;
+      // const validateUser = userActual !== null ? userActual.displayName : objUser.name;
       if (postDataDelete.uid === auth.currentUser.uid) {
         deletePost(postData.id);
       } else {
