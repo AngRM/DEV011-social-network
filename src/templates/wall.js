@@ -137,7 +137,7 @@ function wall(navigateTo) {
     contentElement.textContent = `${postData.content}`;
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-button');
-    likeButton.innerHTML = `<img src=../img/likenegro.png width = '15px' heigth='15px'>`; // Puedes personalizar este ícono
+    likeButton.innerHTML = `<img src=../img/likeblanco.png width = '15px' heigth='15px'>`; // Puedes personalizar este ícono
     // likeImage.src = `../img/likenegro.png width = '15px' heigth='15px'`;
     const editButton = document.createElement('button');
     editButton.innerHTML = `<img src=../img/editarnegro.png width = '15px' heigth='15px'>`; // Puedes personalizar este ícono

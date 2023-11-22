@@ -95,13 +95,14 @@ body {
 /* Estilos para la sección de registro */
 
 .formRegister {
-  background-color: white;
+  background-color: rgb(226, 175, 8);
   border: 0.5px solid rgb(223, 92, 4);
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 390px;
-  align-content: space-between;
-  text-align: center;
+  align-content: start;
+  text-align: left;
+
 }
 .white-background1 {
   background-color: white;
@@ -113,27 +114,44 @@ body {
   z-index: -1;
   margin-top: 5em;
   margin-bottom: -1em;
+  text-align: left;
+  align-content: start;
 }
 
 /* Estilos para inputs y botones */
+.titleRegister{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3em;
+}
+.subTitleRegister{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  color: #32B2B5;
+}
+.labelsRegister{
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: -0.3em;
+  margin-top: 0em;
+  text-align: left;
+  align-content: start;
+  align-items: start;
+}
 .inputRegister {
-  background-color: white;
+  background-color: rgba(241, 206, 88, 0.336);
   color: rgb(85, 60, 14);
-  font-size: 1.6em;
-  font-family: monospace;
-  font-weight: bold;
-  text-align: center;
+  font-size: 0.9em;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight:lighter;
+  text-align: left;
   line-height: 1em;
-  border: 2px solid #FF8055;
-  padding: 10px 20px;
+  border: 2px solid rgb(238, 225, 48);
+  padding: 5px;
   cursor: pointer;
-  display: inline-block;
-  margin: 10px;
-  border-radius: 10px;
+  /* display: inline-block; */
+  margin-bottom: 0.6em;
+  border-radius: 6px;
   white-space: nowrap;
   width: 200px;
-  z-index: 1;
-
 }
 .buttonReturnRegister {
   padding: 0em 0em;
@@ -353,7 +371,7 @@ p {
   color: rgb(234, 243, 233);
 }
 .header-container {
-  background: url("img/comidamix.png"); 
+  background: url("img/Collage.png"); 
   width: 100%;
   height: 100%;
   display: flex;
@@ -521,11 +539,11 @@ dt, dd {
 .like-button{
   border-color: none;
   border-radius: 0.6em;
-  background-color: #e6dcd9;
+  background-color: #131212;
   margin-bottom: 0.6em;
   margin-top: 0.6em;
 }
 .like-button:hover {
-  background-color: rgb(91, 165, 42);
-  border: 1px solid  rgb(91, 165, 42);
+  background-color: rgb(85, 9, 156);
+  border: 1px solid  rgb(85, 9, 156);
 }

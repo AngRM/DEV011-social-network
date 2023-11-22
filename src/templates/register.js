@@ -5,15 +5,21 @@ function register(navigateTo) {
   // whiteBackground1.classList.add("white-background"); // Agrega una clase al div
   // whiteBackground1.style.zIndex = "0"; // Asegura que el fondo blanco e
   const section = document.createElement('section');
-  const title = document.createElement('h2');
-  const subTitle = document.createElement('h3');
+  const titleRegister = document.createElement('h2');
+  const subTitleRegister = document.createElement('h3');
   const buttonReturn = document.createElement('button');
   const form = document.createElement('form');
+  const labelName = document.createElement('label');
   const inputName = document.createElement('input');
+  const labelEmail = document.createElement('label');
   const inputEmail = document.createElement('input');
+  const labelCountry = document.createElement('label');
   const inputCountry = document.createElement('input');
+  const labelRegion = document.createElement('label');
   const inputRegion = document.createElement('input');
+  const labelPass = document.createElement('label');
   const inputPass = document.createElement('input');
+  const labelPassConfirm = document.createElement('label');
   const inputPassConfirm = document.createElement('input');
   const buttonRegister = document.createElement('button');
   const whiteBackground1 = document.createElement('div');
@@ -21,26 +27,41 @@ function register(navigateTo) {
   whiteBackground1.classList.add('white-background1'); // Agrega una clase al div
   whiteBackground1.style.zIndex = '0'; // Asegura que el fo
   section.classList.add('login-background');
+  titleRegister.classList.add('titleRegister');
+  subTitleRegister.classList.add('subTitleRegister');
+  labelName.classList.add('labelsRegister');
   inputName.classList.add('inputRegister');
+  labelEmail.classList.add('labelsRegister');
   inputEmail.classList.add('inputRegister');
   inputCountry.classList.add('inputRegister');
+  labelCountry.classList.add('labelsRegister');
+  labelRegion.classList.add('labelsRegister');
   inputRegion.classList.add('inputRegister');
+  labelPass.classList.add('labelsRegister');
   inputPass.classList.add('inputRegister');
+  labelPassConfirm.classList.add('labelsRegister');
   inputPassConfirm.classList.add('inputRegister');
   buttonReturn.classList.add('buttonReturnRegister');
   buttonRegister.classList.add('buttonRegisterRegister');
 
-  inputName.placeholder = 'Nombre y Apellido';
-  inputEmail.placeholder = 'Correo electrónico';
-  inputCountry.placeholder = 'Pais';
-  inputRegion.placeholder = 'Región';
-  inputPass.placeholder = 'Crea una contraseña';
+  labelName.textContent = 'Nombre y apellido:';
+  labelEmail.textContent = 'Correo electrónico:';
+  labelRegion.textContent = 'Región:';
+  labelCountry.textContent = 'País:';
+  labelPass.textContent = 'Contraseña:';
+  labelPassConfirm.textContent = 'Confirma contraseña:';
+
+  inputName.placeholder = 'Ejemplo: Alexis Pescoran ';
+  inputEmail.placeholder = 'Ejemplo: AleP@gmail.com';
+  inputCountry.placeholder = 'Ejemplo: Perú';
+  inputRegion.placeholder = 'Ejemplo: Lima';
+  inputPass.placeholder = 'Ejemplo:Lab-DEV011';
   inputPass.type = 'password';
-  inputPassConfirm.placeholder = 'Confirma tu contraseña';
+  inputPassConfirm.placeholder = 'Ejemplo:Lab-DEV011';
   inputPassConfirm.type = 'password';
 
-  title.textContent = 'Registro';
-  subTitle.textContent = 'Ingresa los siguientes datos:';
+  titleRegister.textContent = 'Registro';
+  subTitleRegister.textContent = 'Ingresa los siguientes datos';
   buttonRegister.textContent = 'Registrate';
   buttonReturn.textContent = 'Atrás';
 
@@ -99,17 +120,23 @@ function register(navigateTo) {
   section.appendChild(whiteBackground1);
 
   form.append(
+    labelName,
     inputName,
+    labelCountry,
     inputCountry,
+    labelRegion,
     inputRegion,
+    labelEmail,
     inputEmail,
+    labelPass,
     inputPass,
+    labelPassConfirm,
     inputPassConfirm,
     buttonRegister,
     buttonReturn,
   );
 
-  section.append(title, subTitle, form);
+  section.append(titleRegister, subTitleRegister, form);
 
   return section;
 }
