@@ -519,34 +519,53 @@ dt, dd {
 }
 
 .edit-button{
+  background: url("img/editarnegrochico.png") center/cover no-repeat;
   border-color: none;
-  border-radius: 0.6em;
-  background-color: #e6dcd9;
+  border-radius: 0.5em;
+  background-color:#e6dcd9;
+  width: 2em;
+  height: 1.8em;
   margin-bottom: 0.6em;
   margin-top: 0.6em;
-}
+  }
 .edit-button:hover {
   background-color: rgb(226, 175, 8);
   border: 1px solid  rgb(226, 175, 8);
 }
+
 .delete-button{
+  background: url("img/borrarnegrochico.png") center/cover no-repeat;
   border-color: none;
-  border-radius: 0.6em;
-  background-color: #e6dcd9;
+  border-radius: 0.5em;
+  background-color:#e6dcd9;
+  width: 2em;
+  height: 1.8em;
   margin-bottom: 0.6em;
   margin-top: 0.6em;
-}
+  }
+
 .delete-button:hover {
   background-color: red;
   border: 1px solid  red;
 }
 .like-button{
-  border-color: none;
-  border-radius: 0.6em;
-  background-color: #131212;
+  background: url("img/likeblancoChico.png") center/cover no-repeat;
+  border-radius: 0.5em;
+  background-color: #1a1919;
+  width: 2em; /* Este es el ancho total del botón */
+  height: 1.8em; /* Este es el alto total del botón */
   margin-bottom: 0.6em;
   margin-top: 0.6em;
-}
+  }
+  .like-button::before {
+    /* Esto ajusta el tamaño del logo dentro del botón */
+    content: "";
+    display: inline-block;
+    background-size: 60%; /* Ajusta el tamaño del logo según sea necesario */
+    width: 100%; /* Ancho del área del logo dentro del botón */
+    height: 100%; /* Altura del área del logo dentro del botón */
+  }
+
 .like-button:hover {
   background-color: rgb(85, 9, 156);
   border: 1px solid  rgb(85, 9, 156);

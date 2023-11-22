@@ -135,14 +135,11 @@ function wall(navigateTo) {
     contentElement.textContent = `${postData.content}`;
     const likeButton = document.createElement('button');
     likeButton.classList.add('like-button');
-    likeButton.innerHTML = '<img src=../img/likeblanco.png width = \'15px\' heigth=\'15px\'>'; // Puedes personalizar este ícono
     // likeImage.src = `../img/likenegro.png width = '15px' heigth='15px'`;
     const editButton = document.createElement('button');
-    editButton.innerHTML = '<img src=../img/editarnegro.png width = \'15px\' heigth=\'15px\'>'; // Puedes personalizar este ícono
     editButton.classList.add('edit-button');
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-button');
-    deleteButton.innerHTML = '<img src=../img/borrarnegro.png width = \'15px\' heigth=\'15px\'>'; // Puedes personalizar este ícono
     // Agrega funciones de clic para cada botón
     likeButton.addEventListener('click', () => {
     // Lógica para dar like
