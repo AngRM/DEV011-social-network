@@ -207,17 +207,28 @@ body {
  }
 
 .header-text {
-  color: rgb(241, 146, 12);
+  color: rgb(245, 120, 4);
   font-size: 5vw;
-  position: absolute;
-  top: 9px;
-  left: 50%;
+  font-style: italic;
+  position: relative;
+  top: 69px;
+  left: 60%;
   transform: translateX(-50%);
   white-space: nowrap;
   max-width: 100%;
   text-align: center;
   /*backdrop-filter: blur(10px);/*Agrega un efecto de difuminado*/
-  text-shadow: 2px 2px 2px black;
+  text-shadow: 1px 1px 1px black;
+}
+.titleLogin{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 3em;
+}
+.subTitleLogin{
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  color: #32B2B5;
 }
 /* Estilo para los botones y otros elementos en la sección */
 section {
@@ -250,13 +261,13 @@ form > * {
 input {
   background-color: white;
   color: rgb(85, 60, 14);
-  font-size: 1.6em;
-  font-family: monospace;
+  font-size: 1em;
+  font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   text-align: center;
   line-height: 1em;
   border: 2px solid #ff8055;
-  padding: 10px 20px;
+  padding: 0.6em;
   cursor: pointer;
   display: inline-block;
   margin: 10px;

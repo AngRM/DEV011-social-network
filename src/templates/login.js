@@ -8,8 +8,11 @@ function login(navigateTo) {
   const whiteBackground = document.createElement('div');
   whiteBackground.classList.add('white-background'); // Agrega una clase al div
   whiteBackground.style.zIndex = '0'; // Asegura que el fondo blanco esté por encima del fondo colorido
-  const title = document.createElement('h2');
-  const subTitle = document.createElement('h3');
+  const titleLogin = document.createElement('h2');
+  titleLogin.classList.add('titleLogin');
+  const subTitleLogin = document.createElement('h3');
+  subTitleLogin.classList.add('subTitleLogin');
+
   const buttonReturn = document.createElement('button');
   buttonReturn.classList.add('buttonReturn');
   const form = document.createElement('form');
@@ -29,7 +32,7 @@ function login(navigateTo) {
   const errorText = document.createElement('p');
   errorText.textContent = 'Error al ingresar a tu cuenta, revisa que tu correo y contraseña sean correctos';
   /// ///////////////////////////////////////////////////
-  headerText.textContent = 'El verdadero sabor de nuestra tierra';
+  headerText.textContent = 'El verdadero sabor de nuestra tierra...';
   headerText.classList.add('header-text'); // Agrega una clase al div
   headerTextContainer.appendChild(headerText);
 
@@ -37,8 +40,8 @@ function login(navigateTo) {
   inputPass.placeholder = 'Contraseña';
   inputPass.type = 'password';
 
-  title.textContent = 'Acceso';
-  subTitle.textContent = 'Inicia sesión para continuar';
+  titleLogin.textContent = 'Acceso';
+  subTitleLogin.textContent = 'Inicia sesión para continuar';
   buttonLogin.textContent = 'Iniciar sesión';
   forgetPass.textContent = '¿Olvidaste tu contraseña?';
   // Recordar agregarle funcionalidad al boton de olvido y crear pagina correspondiente????///
@@ -79,8 +82,8 @@ function login(navigateTo) {
   sectionNewUser.append(newUser, buttonNewUser);
   section.append(
     headerTextContainer,
-    title,
-    subTitle,
+    titleLogin,
+    subTitleLogin,
     form,
     buttonReturn,
     sectionNewUser,
