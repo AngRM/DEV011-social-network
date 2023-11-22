@@ -7,6 +7,9 @@ body {
   padding: 0;
 }
 /* --------------------Estilos para:'home.js'---------------------- */
+
+  
+
 .homeRebozo {
   display: flex;
   align-content: center;
@@ -56,16 +59,18 @@ body {
   border: 1px solid brown (4, 161, 223);
 }
 .botonesHomeG {
-  padding: 0.9375em 1.25em; /*15px 20px*/
+  background: url("img/googlemini.png") center/cover no-repeat;
+  padding: 1.3em 3.9em; /*15px 20px*/
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.30em; 
   background-color: white; 
   color: #32B2B5  ;
-  border: 2px solid #32B2B5; 
+  border: 1px solid #32B2B5; 
   border-radius: 0.5em; /* 8px / 16px = 0.5em */
   position: relative;
   z-index: 1; 
   cursor: pointer;
+  width: 4em;
 }
 .botonesHomeG:hover {
   background-color: brown;

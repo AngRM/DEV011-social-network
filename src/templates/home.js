@@ -23,8 +23,6 @@ function home(navigateTo) {
   // const Logo = "<img id='imgLogo'>";
   // divLogo.innerHTML = Logo;
   buttonLogin.textContent = 'Iniciar sesión';
-  const google = "<img id='imgLogoG' src=img/google.png width='20px' heigth='20px'>";
-  buttonGoogle.innerHTML = ` Inicia con     ${google}`;
   buttonRegister.textContent = 'Crear cuenta';
 
   // imgGoogle.alt = 'google-img';
