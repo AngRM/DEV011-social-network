@@ -12,14 +12,16 @@ import {
   getDoc,
   updateDoc,
   where,
-  auth
+  auth,
 } from './firebase';
 // Conéctate a la base de datos de Firestore
 // Función para agregar un nuevo post a Firestore
 export function addNewPost(author, content) {
   const timestamp = new Date();
-  const uid = auth.currentUser.uid
-  addDoc(collection(db, 'posts'), { author, content, timestamp, uid });
+  const uid = auth.currentUser.uid;
+  addDoc(collection(db, 'posts'), {
+    author, content, timestamp, uid,
+  });
 }
 // opcional si se quiere actualizar la página para ver las nuevas publicaciones
 export const querySnapshot = getDocs(collection(db, 'posts'));
@@ -52,13 +54,13 @@ export const deletePost = (id) => {
 */
 export const getUserDoc = async (userId) => {
   console.log(userId);
-  const objUser = {}
-  const queryUser = query(collection(db, 'users'), where('uid', "==", userId));
+  const objUser = {};
+  const queryUser = query(collection(db, 'users'), where('uid', '==', userId));
   const querySnapshot = await getDocs(queryUser);
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-    objUser.name = doc.data().name
+    console.log(doc.id, '=>', doc.data());
+    objUser.name = doc.data().name;
   });
-  return objUser
-}
+  return objUser;
+};

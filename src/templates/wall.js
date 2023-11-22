@@ -23,10 +23,10 @@ function wall(navigateTo) {
   const sectionPosts = document.createElement('section');
   const postsContainer = document.createElement('div');
   const divLogoB = document.createElement('div');
-  divLogoB.classList.add('logo-blanco');
   const LogoBlanco = "<img id='imgLogoB' src=img/yummyBlanco.png width='200px' heigth='200px'>";
   divLogoB.innerHTML = LogoBlanco;
 
+  divLogoB.classList.add('logo-blanco');
   headerContainer.classList.add('header-container');
   section.classList.add('backgroundWall');
   buttonClose.classList.add('button-close');
@@ -40,19 +40,35 @@ function wall(navigateTo) {
   postsContainer.classList.add('postsCont');
   postArea.placeholder = 'Escribe una nueva publicación...';
   postsContainer.id = 'postcon';
-  //const userActual = auth.currentUser;
-  //console.log ('usuario',userActual);
-  // Función para actualizar la información del usuario
-function updateUserInfo(userData) {
-  const userNameElement = document.getElementById('user-name');
-  const regionElement = document.getElementById('region');
-  const countryElement = document.getElementById('country');
+  // const userActual = auth.currentUser;
+  // console.log ('usuario',userActual);
 
-  // Actualiza el contenido de los elementos con la nueva información del usuario
-  userNameElement.textContent = userData.name || 'Nombre predeterminado';
-  regionElement.textContent = userData.region || 'Región predeterminada';
-  countryElement.textContent = userData.country || 'País predeterminado';
+  // Función para actualizar la información del usuario
+  function updateUserInfo(userData) {
+    const userNameElement = document.getElementById('user-name');
+    const regionElement = document.getElementById('region');
+    const countryElement = document.getElementById('country');
+
+    // Actualiza el contenido de los elementos con la nueva información del usuario
+    userNameElement.textContent = userData.name;
+    regionElement.textContent = userData.region;
+    countryElement.textContent = userData.country;
   }
+
+  function updateUserInformation() {
+    const userActual = auth.currentUser;
+    if (userActual) {
+      getUserDoc(userActual.uid)
+        .then((userData) => {
+          updateUserInfo(userData);
+        })
+        .catch((error) => {
+          console.error('Error al obtener la información del usuario:', error);
+        });
+    }
+  }
+  // Llama a la función para inicializar la información del usuario
+  updateUserInformation();
 
   const dataUser = `
     <dl itemscope itemtype='user'>
@@ -65,6 +81,7 @@ function updateUserInfo(userData) {
   buttonClose.textContent = 'Cerrar sesión';
   buttonPost.textContent = 'Publicar';
   sectionUser.innerHTML = dataUser;
+
   const logout = () => {
     auth.signOut()
       .then(() => {
@@ -75,25 +92,11 @@ function updateUserInfo(userData) {
       });
   };
 
-  function updateUserInformation() {
-  const userActual = auth.currentUser;
-  if (userActual) {
-    getUserDoc(userActual.uid)
-      .then((userData) => {
-        updateUserInfo(userData);
-      })
-      .catch((error) => {
-        console.error('Error al obtener la información del usuario:', error);
-        });
-    }
-  }
-// Llama a la función para inicializar la información del usuario
-updateUserInformation();
-
   buttonClose.addEventListener('click', () => {
     logout(); // Llamamos a la función de cierre de sesión
     navigateTo('/home'); // Redirigimos a la página de inicio
   });
+
   newPostForm.append(postArea, buttonPost);
   section.append(title, divLogoB, buttonClose, sectionUser, newPostForm, sectionPosts);
   console.log('botón ', buttonPost);
@@ -101,7 +104,7 @@ updateUserInformation();
     event.preventDefault();
     const userActual = auth.currentUser;
     console.log('actual ', userActual);
-    const objUser = await getUserDoc(userActual.uid) //obteniendo info de colección usuario
+    const objUser = await getUserDoc(userActual.uid); // obteniendo info de colección usuario
     console.log('x: ', objUser.name);
     const validateUser = userActual.displayName !== null ? userActual.displayName : objUser.name;
     const content = postArea.value.trim();
@@ -128,6 +131,7 @@ updateUserInformation();
     const postElement = document.createElement('div');
     postElement.classList.add('post');
     const authorElement = document.createElement('p');
+    authorElement.classList.add('author-style');
     authorElement.textContent = `${postData.author}`;
     const contentElement = document.createElement('p');
     contentElement.textContent = `${postData.content}`;
@@ -185,7 +189,7 @@ updateUserInformation();
     });
   });
   headerContainer.append(divLogoB, buttonClose);
-  section.append(headerContainer, sectionUser, newPostForm, sectionPosts);
+  section.append(headerContainer, newPostForm, sectionPosts);
   sectionPosts.append(postsContainer);
   return section;
 }

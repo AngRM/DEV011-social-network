@@ -5,7 +5,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  /* overflow: hidden; */
+  overflow: hidden; 
 }
 /* --------------------Estilos para:'home.js'---------------------- */
 .homeRebozo {
@@ -197,9 +197,7 @@ body {
   transform: translateX(-50%);
   white-space: nowrap;
   max-width: 100%;
-  z-index: 1;
   text-align: center;
-  /*background-color: rgba(254, 254, 254, 0.1);
   /*backdrop-filter: blur(10px);/*Agrega un efecto de difuminado*/
   text-shadow: 2px 2px 2px black;
 }
@@ -355,12 +353,13 @@ p {
   color: rgb(234, 243, 233);
 }
 .header-container {
+  background: url("img/comidamix.png"); 
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: -5em;
+  margin-top: -14em;
   margin-left: auto;
   margin-right: auto;
 }
@@ -368,10 +367,9 @@ p {
 .logo-blanco {
   width: 70px;
   height: 60px;
-  margin-right: -3em;
-  padding-top: 1em;
+  margin-left: 1em;
+  padding-top: 0.7em;
   border-radius: 50%;
-  overflow: hidden;
   background-color: #111111;
   border: solid 3px rgb(238, 229, 229);
 }
@@ -397,27 +395,37 @@ p {
    width: 6.6em;
    height: 2em;
    /* Añade margen derecho para separar el botón del logo */
-   margin-right: 20px;
-   margin-top:5em;
+   margin-right: 29px;
+   margin-top: 3.3em;
+   margin-bottom: 0.3em;
  }
 .post{
   background-color: #e6dcd9;
   font-family: 'Arial', sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 10px; 
-  margin-bottom: 20px; /* Aumenta el espacio entre posts */
+  margin-bottom: 16px; /* Aumenta el espacio entre posts */
   box-shadow: 0 4px 3px rgba(0, 0, 0, 2); 
 }
 .post p {
-  margin: 0; /* Elimina el margen predeterminado de los párrafos dentro de los posts */
+  margin: 0.3em;
 }
 
+.author-style {
+color: #832df3;
+font-family: 'Arial';
+font-weight: bold;
+padding-top: 0.6em;
+padding-left: 0.6em;
+padding-bottom: 0em;
+text-align: start;
+}
 .sectionUser {
   /* Ajusta el espacio interior y exterior del contenedor de usuario */
   padding: 15px;
   margin-right: 10px; 
   margin-left: 10px;/* Ajusta según sea necesario */
-  background: url("img/comidamix.png");
+  /* background: url("img/comidamix.png"); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -443,15 +451,15 @@ dt, dd {
 
 .postArea{
   background-color: #f3f0ee;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  width: 90%;
-  padding: 8px;
+  font-family: Arial;
+  width: 96%;
+  padding: 3px;
   box-sizing: border-box;
-  border: 1px solid #32B2B5;
+  border: 1px solid #832df3;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
   resize: none; /* Evita que el usuario pueda redimensionar el textarea */
-  font-size: 16px;
+  font-size: 13px;
   line-height: 1;
 }
 
@@ -461,39 +469,63 @@ dt, dd {
 
 .buttonPost{
     padding: 0em 0em;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 1.30em; 
-  background-color: #32B2B5; 
+  font-family: Arial;
+  font-size: 0.9em; 
+  background-color: rgb(226, 175, 8); 
   color: white;
   border: none; 
   border-radius: 0.5em; /* 8px / 16px = 0.5em */
   position: relative;
-  z-index: 1; 
   cursor: pointer;
   width: 6em;
   height: 2em;
+}
+.buttonPost:hover {
+  background-color: #832df3;
+  border: 1px solid  #832df3;
 }
 .postsCont{
   background: url("img/rebozoRosita.png");
   padding: 20px;
 }
 .sectionPosts {
-  background-color: #fff; /* Cambia el color de fondo de la sección de posts */
+  background-color: rgb(233, 185, 27); /* Cambia el color de fondo de la sección de posts */
   border-radius: 10px; /* Bordes más redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
-  padding: 20px; /* Añade un espacio de relleno */
-  margin-top: 20px; /* Aumenta el espacio entre la sección de usuario y los posts */
+  box-shadow: 0 4px 8px vrgba(233, 24, 24, 0.1); /* Agrega una sombra suave */
+  padding: 0.6em; /* Añade un espacio de relleno */
+  margin-top: 10px; /* Aumenta el espacio entre la sección de usuario y los posts */
 }
 
 .edit-button{
   border-color: none;
+  border-radius: 0.6em;
   background-color: #e6dcd9;
+  margin-bottom: 0.6em;
+  margin-top: 0.6em;
+}
+.edit-button:hover {
+  background-color: rgb(226, 175, 8);
+  border: 1px solid  rgb(226, 175, 8);
 }
 .delete-button{
   border-color: none;
+  border-radius: 0.6em;
   background-color: #e6dcd9;
+  margin-bottom: 0.6em;
+  margin-top: 0.6em;
+}
+.delete-button:hover {
+  background-color: red;
+  border: 1px solid  red;
 }
 .like-button{
   border-color: none;
+  border-radius: 0.6em;
   background-color: #e6dcd9;
+  margin-bottom: 0.6em;
+  margin-top: 0.6em;
+}
+.like-button:hover {
+  background-color: rgb(91, 165, 42);
+  border: 1px solid  rgb(91, 165, 42);
 }
