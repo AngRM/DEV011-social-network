@@ -20,8 +20,8 @@ function home(navigateTo) {
   buttonRegister.classList.add('botonesHome');
   imgGoogle.classList.add('google-image');
 
-  const Logo = "<img id='imgLogo' src=img/Logo.png width='200px' heigth='200px'>";
-  divLogo.innerHTML = Logo;
+  // const Logo = "<img id='imgLogo'>";
+  // divLogo.innerHTML = Logo;
   buttonLogin.textContent = 'Iniciar sesión';
   const google = "<img id='imgLogoG' src=img/google.png width='20px' heigth='20px'>";
   buttonGoogle.innerHTML = ` Inicia con     ${google}`;

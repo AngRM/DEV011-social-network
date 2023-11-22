@@ -23,8 +23,6 @@ function wall(navigateTo) {
   const sectionPosts = document.createElement('section');
   const postsContainer = document.createElement('div');
   const divLogoB = document.createElement('div');
-  const LogoBlanco = "<img id='imgLogoB' src=img/yummyBlanco.png width='200px' heigth='200px'>";
-  divLogoB.innerHTML = LogoBlanco;
 
   divLogoB.classList.add('logo-blanco');
   headerContainer.classList.add('header-container');
